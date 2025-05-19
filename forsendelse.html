@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!-- Angiver at dette dokument er skrevet i HTML5 -->
+
+<html lang="da">
+<!-- Starter HTML-dokumentet og sætter sprog til dansk -->
+
+<!-- =================== HEAD: Metadata og opsætning =================== -->
+<!-- <head>: Indeholder information om dokumentet, som ikke vises direkte i browseren -->
+<!-- Bruges til at linke stilark, scripts, definere titel, SEO-data m.m. -->
+<head>
+
+    <!-- Angiver tegnsættet som UTF-8 -->
+    <!-- Gør det muligt at vise danske bogstaver og specialtegn korrekt -->
+    <meta charset="utf-8">
+
+    <!-- Titel på hjemmesiden – vises i browserens faneblad og i søgeresultater -->
+    <title>Vælg forsendelsesmetode | GrejFreak.dk – Hurtig levering & afhentning</title>
+
+
+    <!-- Søgemaskine-indeks: Tillader alle robotter at indeksere siden -->
+    <meta name="robots" content="All">
+
+    <!-- Forfatter-angivelse (SEO eller info) -->
+    <meta name="author" content="Udgiver">
+
+    <!-- Ophavsretlig information (brugbar for søgemaskiner og værktøjer) -->
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- ========== STIL & DESIGN ========== -->
+
+    <!-- Link til ekstern CSS-stylesheet -->
+    <!-- Indeholder hele sidens layout og designregler -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Gør layoutet responsivt på alle enheder -->
+    <!-- width=device-width = brugerens skærmbredde -->
+    <!-- initial-scale=1 = ingen zoom ved load -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link til SCSS-fil (bemærk: SCSS skal normalt kompileres til CSS først) -->
+    <link rel="stylesheet" href="css/styles.scss">
+
+    <!-- Bootstrap JavaScript-bibliotek indlæst via CDN -->
+    <!-- Bruges til funktioner som dropdown, collapse, modals m.m. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<!-- =================== START BODY =================== -->
+<!-- <body>: Alt synligt indhold på hjemmesiden placeres her -->
+
+<!-- ==== Hele header pakket ind i din mobil-venlige struktur ==== -->
+<!-- container-fluid: Bootstrap-klasse der giver fuld bredde på hele skærmen -->
+<!-- py-5: Giver vertikal padding (py = padding-y) på 3rem (ca. 80px) -->
+<header class="container-fluid py-5">
+
+    <!-- row: Starter en række i Bootstrap grid-systemet -->
+    <!-- justify-content-center: Centrerer indholdet horisontalt -->
+    <!-- align-items-center: Centrerer indholdet vertikalt i rækken -->
+    <div class="row justify-content-center align-items-center">
+
+        <!-- ==== Logo-sektion ==== -->
+        <!-- col-4: Betyder, at kolonnen fylder 4/12 (1/3) af rækken på alle skærmstørrelser -->
+        <!-- text-center: Centrerer indholdet horisontalt i kolonnen -->
+        <div class="col-4 text-center">
+
+            <!-- Logoet linker til forsiden -->
+            <a href="index.html">
+                <!-- img-fluid: Sørger for, at billedet skaleres korrekt og tilpasses kolonnens bredde -->
+                <img src="img/logo.png" alt="GrejFreak logo – klik for at gå til forsiden" class="img-fluid">
+            </a>
+        </div>
+
+        <!-- ==== Søgefelt-sektion ==== -->
+        <!-- col-4: Fylder også 1/3 af rækken -->
+        <div class="col-4">
+
+            <!-- form: Opretter formular til søgning -->
+            <!-- d-flex: Gør formularen til en flex-container -->
+            <!-- align-items-center: Centrerer input-feltet vertikalt -->
+            <form class="d-flex align-items-center">
+
+                <!-- form-control: Bootstrap-klasse for stilfuldt input-felt -->
+                <!-- Me-2: Margin-end (højre margin) på .5rem (8px) for afstand til evt. knap -->
+                <!-- type="search": Angiver at det er et søgefelt -->
+                <!-- placeholder="SØG": Viser teksten 'SØG' indtil brugeren skriver noget -->
+                <!-- aria-label: Gør feltet tilgængeligt for skærmlæsere -->
+                <input class="form-control me-2" type="search" placeholder="SØG" aria-label="Søg">
+            </form>
+        </div>
+
+        <!-- ==== Login og Kurv-sektion ==== -->
+        <!-- col-4: Fylder den sidste tredjedel af rækken -->
+        <!-- d-flex: Gør kolonnen til en flex-container -->
+        <!-- justify-content-center: Centrerer indholdet horisontalt -->
+        <!-- gap-4: Giver afstand (1.5rem = 24px) mellem elementerne (login og kurv) -->
+        <div class="col-4 d-flex justify-content-center gap-4">
+
+            <!-- ==== Login-knap ==== -->
+            <!-- text-center: Centrerer indholdet -->
+            <div class="text-center">
+                <!-- a: Link til login-side -->
+                <!-- btn p-0 border-0: gør billedet klikbart som en knap uden padding eller kant -->
+                <a href="login.html" class="btn p-0 border-0">
+                    <!-- img-fluid: Skalerbart billede -->
+                    <img src="img/user/user_50x50.png" alt="Ikon for login – klik for at logge ind" class="img-fluid">
+                </a>
+                <!-- Beskrivende tekst under ikonet -->
+                <div class="fw-bold">Login</div>
+            </div>
+
+            <!-- ==== Kurv-knap ==== -->
+            <!-- text-center: Centrerer kurvelementet -->
+            <div class="text-center">
+                <!-- a: Link til kurv-side -->
+                <!-- btn p-0 border-0: Gør billedet klikbart uden padding eller kant -->
+                <a href="kurv.html" class="btn p-0 border-0">
+                    <!-- img-fluid: Skalerbart billede -->
+                    <img src="img/kurv/kurv_48X48.png" alt="Ikon for indkøbskurv – klik for at se din kurv" class="img-fluid">
+                </a>
+                <!-- Beskrivende tekst under ikonet -->
+                <div class="fw-bold">Kurv</div>
+            </div>
+
+        </div> <!-- Slut på col-4 til login og kurv -->
+
+    </div> <!-- Slut på row -->
+</header> <!-- Slut på header -->
+
+<!-- Yderste beholder der centrerer alt indhold og giver luft i top og bund -->
+<div class="container py-5">
+    <!-- "container" er en Bootstrap-klasse der giver en fast bredde og centrerer indholdet på skærmen -->
+    <!-- "py-5" står for "padding y-akse = 5" → altså ekstra afstand øverst og nederst (lodret) -->
+
+    <!-- Starter en række i Bootstrap-grid systemet -->
+    <div class="row">
+        <!-- "row" bruges til at organisere kolonner horisontalt langs x-aksen -->
+
+        <!-- Venstre kolonne som fylder 100% på små skærme, og 8/12 på skærme ≥ 576px -->
+        <div class="col-12 col-sm-8 mb-4">
+            <!-- "col-12" = fuld bredde på mobil -->
+            <!-- "col-sm-8" = 8 ud af 12 kolonnebredder på små og større skærme -->
+            <!-- "mb-4" står for "margin-bottom = 4" → skaber afstand under denne boks (y-aksen) -->
+
+            <!-- En indvendig boks med kant, baggrund og indvendig luft -->
+            <div class="border p-4 bg-white">
+                <!-- "border" = tilføjer en synlig grå kant rundt om boksen -->
+                <!-- "p-4" = padding på alle sider (x- og y-aksen) for luft indeni boksen -->
+                <!-- "bg-white" = sætter baggrunden til hvid -->
+
+                <!-- Flex-container med afstand mellem knapperne -->
+                <div class="mb-4 d-flex justify-content-between">
+                    <!-- "mb-4" = margin-bottom = 4 → giver luft under knap-rækken -->
+                    <!-- "d-flex" = aktiverer Flexbox layout (vandret styring) -->
+                    <!-- "justify-content-between" = sender første og sidste element ud til hver sin side på x-aksen -->
+
+                    <!-- Grå knap der repræsenterer trin 1 -->
+                    <button class="btn btn-outline-secondary">Trin 1 - Adresse</button>
+                    <!-- "btn" = Bootstrap-knap-klasse der sikrer ensartet styling -->
+                    <!-- "btn-outline-secondary" = grå kant, ingen baggrund, sekundær farve -->
+
+                    <!-- Grøn knap der repræsenterer trin 2 (aktivt trin) -->
+                    <button class="btn btn-success">Trin 2 - Forsendelse</button>
+                    <!-- "btn-success" = grøn baggrund og hvid tekst, signalerer 'aktiv' eller 'positiv' handling -->
+
+                    <!-- Grå knap for trin 3 -->
+                    <button class="btn btn-outline-secondary">Trin 3 - Betaling</button>
+                    <!-- Samme som trin 1 – grå stil og inaktiv tilstand -->
+                </div> <!-- Slut på knappe række -->
+
+                <form>
+                    <!-- Start på en formular – bruges typisk til at sende leveringsvalg, betaling osv. -->
+
+                    <!-- GLS - Levering til døren (markeret med rød kant for fokus) -->
+                    <div class="border border-danger p-3 mb-3 rounded">
+                        <!-- "border" = tilføjer en synlig kant -->
+                        <!-- "border-danger" = rød kant (Bootstrap 'danger' farve = rød) -->
+                        <!-- "p-3" = padding = 3 → luft indvendigt på alle sider (x- og y-akse) -->
+                        <!-- "mb-3" = margin-bottom = 3 → skaber afstand under boksen (y-aksen) -->
+                        <!-- "rounded" = afrundede hjørner på boksen -->
+
+                        <div class="d-flex align-items-start">
+                            <!-- "d-flex" = aktiverer Flexbox → vandret layout (x-aksen) -->
+                            <!-- "align-items-start" = justerer indhold til toppen (y-aksen) -->
+
+                            <!-- Fjernet: <input type="radio"> – normalt ville man have en radioknap her til at vælge leveringsform -->
+
+                            <div>
+                                <!-- Indholdsboks med GLS-info -->
+
+                                <!-- Logo -->
+                                <img src="img/gls.png" alt="GLS logo" style="height: 30px;">
+                                <!-- "img": viser GLS-logo, højden sættes til 30px -->
+
+                                <!-- Overskrift: Leveringstype -->
+                                <p class="fw-bold mb-1">GLS - Levering til døren</p>
+                                <!-- "fw-bold" = font-weight bold (fed tekst) -->
+                                <!-- "mb-1" = margin-bottom = 1 → lidt luft under overskriften -->
+
+                                <!-- Beskrivende tekst -->
+                                <p class="mb-1 small">
+                                    Bestil før 15.00 og få leveret næste hverdag. Du vil modtage en besked fra GLS med mulighed for at vælge pakkeshop, alternativ adresse, levering på aftalt sted med fuldmagt – eller blot levering på adressen.
+                                </p>
+                                <!-- "small" = lille skrifttype -->
+                                <!-- "mb-1" = lidt luft under beskrivelsen -->
+
+                                <!-- Pris -->
+                                <span class="fw-bold">30,00 kr</span>
+                                <!-- "fw-bold" = fed tekst for at fremhæve prisen -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Afhentning hos GrejFreak.dk -->
+                    <div class="border p-3 mb-4 rounded">
+                        <!-- "border" = standard grå kant -->
+                        <!-- "p-3" = padding hele vejen rundt (x/y-akse) -->
+                        <!-- "mb-4" = margin-bottom = 4 → lidt større afstand under boksen end ovenstående -->
+                        <!-- "rounded" = afrundede hjørner -->
+
+                        <div class="d-flex align-items-start">
+                            <!-- Flexbox aktiveret igen for vandret struktur (x-aksen) -->
+
+                            <!-- Fjernet: <input type="radio"> – her burde også være en radioknap -->
+
+                            <div>
+                                <!-- Indhold for afhentningsmetode -->
+                                <div class="d-flex align-items-start gap-3">
+                                    <!-- "d-flex" = lægger billede og tekst side om side (vandret) -->
+                                    <!-- "align-items-start" = justerer indholdet til toppen (y-aksen) -->
+                                    <!-- "gap-3" = giver luft (mellemrum) mellem billedet og teksten (x-aksen) -->
+
+                                    <!-- Logo-billede -->
+                                    <img src="img/logo.png" alt="GrejFreak logo" style="height: 30px; width: auto;">
+                                    <!-- Højden justeres til 30px for bedre synlighed, bredden følger proportioner automatisk -->
+
+                                    <!-- Tekstindhold -->
+                                    <div>
+                                        <!-- Overskrift på leveringsmetode -->
+                                        <h3 class="fs-6 fw-bold mb-1">Afhentning hos GrejFreak.dk i Viby J</h3>
+                                        <!-- "h3" (med fs-6) er semantisk korrekt og giver bedre tilgængelighed end <p> -->
+                                        <!-- "fw-bold" = fed tekst, "mb-1" = lille afstand under overskriften -->
+
+                                        <!-- Beskrivende tekst -->
+                                        <p class="small mb-2">
+                                            Ordren kan først afhentes, når du har fået en mail om at den er klar.<br>
+                                            Fri fragt ved køb over <strong>0,00 kr</strong> (inkl. moms).
+                                        </p>
+                                        <!-- "small" = lille skriftstørrelse for sekundær information -->
+                                        <!-- "mb-2" = afstand under paragraf -->
+
+                                        <!-- Pris -->
+                                        <div class="fw-bold">0,00 kr</div>
+                                        <!-- Bruger <div> i stedet for <span> for klarere struktur og nemmere styling "fw-bold" = fed tekst for at fremhæve prisen -->
+
+                                    </div> <!-- Lukker tekstblokken (overskrift, beskrivelse og pris) -->
+
+                                </div> <!-- Lukker flex-rækken med billede og tekst side om side -->
+
+                            </div> <!-- Lukker afhentningsboksen (ramme med padding og kant) -->
+
+                        </div> <!-- Lukker indre container / kolonne i formularen -->
+
+                    </div> <!-- Lukker yderste struktur (typisk row, form eller container) -->
+
+                    <!-- Knap til betaling -->
+                    <div class="d-grid">
+                        <!-- "d-grid" = Bootstrap-klasse der laver et grid-layout – bruges her til at få knappen til at fylde 100% i bredden -->
+                        <a href="#" class="btn btn-success">GÅ TIL BETALING</a>
+                        <!-- "btn" = Bootstrap-standardknap
+                             "btn-success" = grøn knap (success-style), som signalerer positiv handling -->
+                    </div> <!-- Lukker betalingsknap-sektion -->
+
+                    <!-- Tilbage-link -->
+                    <div class="mt-3">
+                        <!-- "mt-3" = margin-top 3 → skaber luft op til knappen (y-aksen) -->
+                        <a href="adresse.html" class="text-decoration-none">Tilbage til Adresse</a>
+                        <!-- "text-decoration-none" = fjerner understregning på linket (Bootstrap-klasse) -->
+                    </div> <!-- Lukker tilbage-link-sektion -->
+
+                </form> <!-- Lukker hele formularen -->
+
+            </div> <!-- Lukker container-boksen omkring formularen -->
+
+        </div> <!-- Lukker kolonne eller sektion i layoutet -->
+
+
+        <!-- Højre kolonne: Opsummering -->
+        <div class="col-12 col-sm-4">
+            <!-- "col-12" = fylder hele bredden på mobil -->
+            <!-- "col-sm-4" = fylder 4/12 (33%) på små og større skærme (fx sidekolonne) -->
+
+            <div class="border p-4 bg-white">
+                <!-- "border" = grå kant rundt om boksen -->
+                <!-- "p-4" = padding (luft) hele vejen rundt (x- og y-aksen) -->
+                <!-- "bg-white" = hvid baggrund -->
+
+                <!-- Leveringsoplysninger -->
+                <h6 class="fw-bold">LEVERING</h6>
+                <!-- "h6" = lille overskrift -->
+                <!-- "fw-bold" = gør teksten fed -->
+
+                <p class="mb-1">
+                    Emil Nielsen<br>
+                    Stenkildevej 5, 4793, Bogøby, Danmark<br>
+                    Email@kryyger.dk<br>
+                    60657571
+                </p>
+                <!-- "mb-1" = margin-bottom = 1 → lille afstand under -->
+
+                <p class="text-danger fw-bold">SKAL ORDREN SENDES TIL EN ANDEN ADRESSE ?</p>
+                <!-- Rød og fed advarselstekst → til at skabe opmærksomhed -->
+
+                <!-- Forsendelsesoplysninger -->
+                <h6 class="fw-bold mt-4">FORSENDELSE</h6>
+                <!-- "mt-4" = margin-top = 4 → afstand over (lodret / y-aksen) -->
+                <p>GLS - Levering til døren</p>
+
+                <!-- Ordreoversigt -->
+                <h6 class="fw-bold mt-4">ORDREOVERSIGT</h6>
+                <p class="mb-0">Härkila - Moose Hunter 2.0 Gore-Tex Jagtjakke (50) MEDIUM</p>
+                <!-- "mb-0" = ingen margin under linjen -->
+
+                <p class="text-muted">
+                    <del>4.039,00 kr</del>
+                    <strong>3.099,00 kr</strong> (inkl. moms)
+                </p>
+                <!-- "text-muted" = grå tekst -->
+                <!-- <del> = gennem streget tekst (vis rabat) -->
+                <!-- <strong> = fed pris -->
+
+                <hr>
+                <!-- Horisontal streg → visuel adskillelse -->
+
+                <!-- Varekøb -->
+                <p class="d-flex justify-content-between mb-1">
+                    <span>Samlet varekøb uden rabat:</span>
+                    <span>4.039,00 kr</span>
+                </p>
+                <!-- "d-flex justify-content-between" = placerer teksten i hver sin side (x-aksen) -->
+                <!-- "mb-1" = lille afstand under -->
+
+                <!-- Fragtpris -->
+                <p class="d-flex justify-content-between mb-1">
+                    <span>Fragt:</span>
+                    <span>30,00 kr</span>
+                </p>
+
+                <!-- Rabat -->
+                <p class="text-danger fw-bold">Samlet Rabat: -940,00 kr</p>
+                <!-- Rød og fed tekst for at fremhæve rabatten -->
+
+                <!-- Total -->
+                <p class="fw-bold fs-5">Total: 3.129,00 kr</p>
+                <!-- "fs-5" = font-size 5 (lidt større tekst) -->
+
+                <!-- Moms -->
+                <p class="text-muted mb-1">Heraf moms: 625,80 kr</p>
+                <!-- Grå og mindre fremhævet tekst med moms-info -->
+
+                <!-- Anyday -->
+                <p class="text-muted small">
+                    Del dit køb i 4, 6, 8 eller 10 betalinger –
+                    <b class="text-danger">Anyday</b>
+                </p>
+                <!-- "small" = lille tekst -->
+                <!-- "text-danger" = rød tekst kun på Anyday-navnet -->
+            </div> <!-- SLUT på opsummerings-boks -->
+        </div> <!-- SLUT på højre kolonne -->
+    </div> <!-- SLUT på .row -->
+</div> <!-- SLUT på .container py-5 -->
+
+
+<!-- ========== Footer med kontakt, showroom og betalingsoplysninger ==========
+
+Denne footer er opbygget med Bootstrap’s grid-system.
+Klasser:
+- container-fluid: Gør footeren i fuld bredde (hele skærmens bredde)
+- pt-5: Padding-top – giver luft over (3rem / 48px)
+- bg-dark: Bootstrap-baggrundsfarve – mørk baggrund (ofte #212529)
+- text-white: Gør al tekst hvid, hvilket giver høj kontrast på mørk baggrund
+-->
+<footer class="container-fluid pt-5 bg-dark text-white">
+
+    <!-- Indre container – begrænser bredden på indholdet -->
+    <div class="container">
+
+        <!-- Række med tre kolonner.
+        Klasser:
+        - row: Bootstrap række, bruges til at placere kolonner i.
+        - text-center: Centrerer tekst på mobil og små skærme.
+        - text-xl-start: Justerer tekst til venstre på store skærme (xl og op).
+        -->
+        <div class="row text-center text-xl-start">
+
+            <!--  Kolonne 1: Kundeservice
+            Klasser:
+            - col-12: Fylder hele bredden på små skærme (mobil)
+            - col-xl-4: Fylder 1/3 af rækken på store skærme
+            - mb-4: Margin-bottom (afstand under boksen) – 1.5rem / 24px-->
+            <div class="col-12 col-xl-4 mb-4">
+
+                <!--h5: Sektionstitel – bruges i footers til at adskille indhold-->
+                <h5>KUNDESERVICE</h5>
+
+                <!-- Kontaktinformation:
+                - <b>: Fed tekst for at fremhæve feltet (stylet med SCSS i dit projekt)
+                - <p>: Hver kontaktlinje adskilles for bedre læsbarhed-->
+                <p><b>Email</b>: INFO@GrejFreak.dk</p>
+                <p><b>Telefon</b>: 78 72 34 34</p>
+            </div>
+
+
+            <!-- Kolonne 2: Showroom og åbningstider
+            Denne kolonne viser showroomets adresse og åbningstider i en responsiv kolonne.
+            Bootstrap layoutklasser:
+            - col-12: Fylder hele bredden på små skærme
+            - col-xl-4: Fylder 1/3 af rækken på store skærme
+            - mb-4: Margin-bottom – giver luft under kolonnen (1.5rem = 24px) -->
+            <div class="col-12 col-xl-4 mb-4">
+
+                <!-- Overskrift for showroom sektionen -->
+                <h5>SHOWROOM</h5>
+
+                <p>
+                    I vores showroom kan du prøve dit grej før du køber det.<br>
+
+                    <!--  Adresse-link:
+                    - text-white: Bootstrap utility – gør teksten hvid, så den står klart på mørk baggrund.
+                    - text-decoration-underline: Bootstrap utility – tilføjer understregning for at vise, det er et link.-->
+                    <a href="https://maps.app.goo.gl/ZXvLLEqBA9bFAQyz6" class="text-white text-decoration-underline">
+                        Gunnar Clausens Vej 58, 8260 Viby J.
+                    </a>
+                </p>
+
+                <!-- Underrubrik for åbningstider.
+                - mt-3: Bootstrap spacing utility – margin-top på 1rem (16px), så der er luft over.-->
+                <h6 class="mt-3">Åbningstider i showroom</h6>
+
+                <!--Liste over åbningstider:
+                - list-unstyled: Bootstrap utility class som fjerner bullets og venstre padding fra listen.
+
+                HVOR KOMMER DEN FRA?
+                Kommer fra Bootstrap-filen: _lists.scss
+
+                HVAD GØR DEN?
+                - Fjerner standard HTML-bullets (de små prikker foran hvert punkt).
+                - Fjerner indrykning (padding-left).
+
+                HVAD ER BULLETS?
+                - Bullet points = de runde prikker der vises ved <li> i en <ul>.
+                - De bruges normalt til punktopstillinger, men fjernes her for at listen ligner almindelig tekst/menupunkter.
+
+                HVORFOR BRUGER VI DET?
+                - Det ser mere stilrent ud, især i footers, menuer og kontaktoplysninger.-->
+                <ul class="list-unstyled">
+                    <li><b>Mandag</b>: 10.00 - 16.30</li>
+                    <li><b>Tirsdag</b>: 10.00 - 16.30</li>
+                    <li><b>Onsdag</b>: 10.00 - 16.30</li>
+                    <li><b>Torsdag</b>: 10.00 - 17.30</li>
+                    <li><b>Fredag</b>: 10.00 - 16.30</li>
+                    <li><b>Lørdag</b>: 10.00 - 14.00</li>
+                    <li><b>Søndag</b>: Lukket</li>
+                </ul>
+            </div>
+
+
+
+            <!--Kolonne 3: Information Denne kolonne viser links til hjælpesider og virksomhedsoplysninger.
+            Bootstrap layout:
+            - col-12: Fuldbredde på små skærme
+            - col-xl-4: 1/3 bredde på store skærme
+            - mb-4: Giver margin under kolonnen på mobil
+            -->
+            <div class="col-12 col-xl-4 mb-4">
+
+                <!-- Sektionstitel -->
+                <h5>INFORMATION</h5>
+
+                <!-- Liste med links – vises uden bullets.
+
+                list-unstyled: Bootstrap utility class.
+
+                HVOR KOMMER DET FRA?
+                - Bootstrap SCSS utility: _lists.scss
+
+                HVAD GØR DET?
+                - Fjerner bullet points (prikker foran listen).
+                - Fjerner padding-left (indrykning), så listen flugter til venstre.
+
+                HVORFOR BRUGES DET?
+                - For at få listen til at se ud som en ren, moderne menuliste – typisk brugt i footers og navigation.-->
+                <ul class="list-unstyled">
+
+                    <!--
+                    Hvert link bruger:
+                    - text-white: Bootstrap utility – gør tekst hvid.
+                    - text-decoration-none: Bootstrap utility – fjerner understregning.
+
+                    Resultat:
+                    pæne links uden underlinje, der er tydelige på mørk baggrund.-->
+                    <li><a href="index.html" class="text-white text-decoration-none">Retur og Reklamation</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">GrejPedia</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Ofte Stillede Spørgsmål</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Showroom</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Fordele</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Kundeklub</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Om os</a></li>
+                </ul>
+            </div>
+
+            <!-- ========== Anden række: Betaling og copyright ========== -->
+            <!-- justify-content-center: Centrerer kolonnen horisontalt -->
+            <div class="row justify-content-center">
+                <!-- col-12: Fuld bredde på mobil -->
+                <!-- col-md-6: Halvdelen af rækken fra md og op -->
+                <!-- text-center: Centrerer både billeder og tekst -->
+                <!-- payment-logos: Egen stylingklasse til logoer -->
+
+                <!-- img: Billeder af betalingsikoner -->
+                <!-- alt: Alternativ tekst til skærmlæsere og SEO -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center payment-logos mb-2">
+                    <!-- col-12: Fuld bredde på mobil -->
+                    <!-- col-md-6: Halvdelen af rækken fra md og op -->
+                    <!-- text-center: Centrerer både billeder og tekst -->
+                    <!-- payment-logos: Egen stylingklasse til logoer -->
+
+                    <!-- img: Billeder af betalingsikoner -->
+                    <!-- alt: Alternativ tekst til skærmlæsere og SEO -->
+                    <img src="img/masterCard.png" alt="Betalingskort: Mastercard logo">
+                    <img src="img/dankort.png" alt="Betalingskort: Dankort logo">
+                    <img src="img/gls.png" alt="Fragtfirma: GLS leveringslogo">
+
+                    <!-- p: Afsnit med copyright og CVR -->
+                    <!-- mb-0: Ingen margin-bottom -->
+                    <!-- mt-2: Margin-top på 0.5rem (8px) -->
+                    <p class="mb-0 mt-2">
+                        © 2025 GrejFreak.dk<br>
+                        CVR 31585538
+                    </p> <!--Lukker: <p class="mb-0 mt-2"> – afsnit med ophavsret og CVR-nummer -->
+
+                </div> <!--Lukker: <div class="col-12 col-sm-12 col-md-6 col-lg-6 ..."> – kolonne med betalingsikoner og bundtekst -->
+
+            </div> <!-- Lukker: <div class="row"> – rækken der indeholder footer 2 kolonner -->
+
+        </div> <!--Lukker: <div class="row"> – rækken der indeholder footer 2 kolonner -->
+
+    </div> <!--Lukker: <div class="container"> – indre container der begrænser bredden på footer indhold -->
+
+</footer>  <!-- Lukker: <footer class="container-fluid pt-5 bg-dark text-white"> – hele footeren -->
+
+</body> <!-- Lukker <body> – hele det synlige indhold på siden -->
+
+</html> <!-- Lukker <html> – hele HTML-dokumentet -->

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<!-- Angiver at dette dokument er skrevet i HTML5 -->
+
+<html lang="da">
+<!-- Starter HTML-dokumentet og sætter sprog til dansk -->
+
+<!-- =================== HEAD: Metadata og opsætning =================== -->
+<!-- <head>: Indeholder information om dokumentet, som ikke vises direkte i browseren -->
+<!-- Bruges til at linke stilark, scripts, definere titel, SEO-data m.m. -->
+<head>
+
+	<!-- Angiver tegnsættet som UTF-8 -->
+	<!-- Gør det muligt at vise danske bogstaver og specialtegn korrekt -->
+	<meta charset="utf-8">
+
+	<!-- Titel på hjemmesiden – vises i browserens faneblad og i søgeresultater -->
+	<title>GrejFreak</title>
+
+	<!-- Søgemaskine-indeks: Tillader alle robotter at indeksere siden -->
+	<meta name="robots" content="All">
+
+	<!-- Forfatter-angivelse (SEO eller info) -->
+	<meta name="author" content="Udgiver">
+
+	<!-- Ophavsretlig information (brugbar for søgemaskiner og værktøjer) -->
+	<meta name="copyright" content="Information om copyright">
+
+	<!-- ========== STIL & DESIGN ========== -->
+
+	<!-- Link til ekstern CSS-stylesheet -->
+	<!-- Indeholder hele sidens layout og designregler -->
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+
+	<!-- Gør layoutet responsivt på alle enheder -->
+	<!-- width=device-width = brugerens skærmbredde -->
+	<!-- initial-scale=1 = ingen zoom ved load -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Link til SCSS-fil (bemærk: SCSS skal normalt kompileres til CSS først) -->
+	<link rel="stylesheet" href="css/styles.scss">
+
+	<!-- Bootstrap JavaScript-bibliotek indlæst via CDN -->
+	<!-- Bruges til funktioner som dropdown, collapse, modals m.m. -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<!-- =================== START BODY =================== -->
+<!-- <body>: Alt synligt indhold på hjemmesiden placeres her -->
+<body>
+
+
+<!-- ==== Hele header pakket ind i din mobil-venlige struktur ==== -->
+<!-- container-fluid: Bootstrap-klasse der giver fuld bredde på hele skærmen -->
+<!-- py-5: Giver vertikal padding (py = padding-y) på 3rem (ca. 80px) -->
+<header class="container-fluid py-5">
+
+	<!-- row: Starter en række i Bootstrap grid-systemet -->
+	<!-- justify-content-center: Centrerer indholdet horisontalt -->
+	<!-- align-items-center: Centrerer indholdet vertikalt i rækken -->
+	<div class="row justify-content-center align-items-center">
+
+		<!-- ==== Logo-sektion ==== -->
+		<!-- col-4: Betyder, at kolonnen fylder 4/12 (1/3) af rækken på alle skærmstørrelser -->
+		<!-- text-center: Centrerer indholdet horisontalt i kolonnen -->
+		<div class="col-4 text-center">
+
+			<!-- Logoet linker til forsiden -->
+			<a href="index.html">
+				<!-- img-fluid: Sørger for, at billedet skaleres korrekt og tilpasses kolonnens bredde -->
+				<img src="img/logo.png" alt="GrejFreak.dk forside logo – klik for at vende tilbage til forsiden" class="img-fluid">
+			</a>
+		</div>
+
+		<!-- ==== Søgefelt-sektion ==== -->
+		<!-- col-4: Fylder også 1/3 af rækken -->
+		<div class="col-4">
+
+			<!-- form: Opretter formular til søgning -->
+			<!-- d-flex: Gør formularen til en flex-container -->
+			<!-- align-items-center: Centrerer input-feltet vertikalt -->
+			<form class="d-flex align-items-center">
+
+				<!-- form-control: Bootstrap-klasse for stilfuldt input-felt -->
+				<!-- Me-2: Margin-end (højre margin) på .5rem (8px) for afstand til evt. knap -->
+				<!-- type="search": Angiver at det er et søgefelt -->
+				<!-- placeholder="SØG": Viser teksten 'SØG' indtil brugeren skriver noget -->
+				<!-- aria-label: Gør feltet tilgængeligt for skærmlæsere -->
+				<input class="form-control me-2" type="search" placeholder="SØG" aria-label="Søg">
+			</form>
+		</div>
+
+		<!-- ==== Login og Kurv-sektion ==== -->
+		<!-- col-4: Fylder den sidste tredjedel af rækken -->
+		<!-- d-flex: Gør kolonnen til en flex-container -->
+		<!-- justify-content-center: Centrerer indholdet horisontalt -->
+		<!-- gap-4: Giver afstand (1.5rem = 24px) mellem elementerne (login og kurv) -->
+		<div class="col-4 d-flex justify-content-center gap-4">
+
+			<!-- ==== Login-knap ==== -->
+			<!-- text-center: Centrerer indholdet -->
+			<div class="text-center">
+				<!-- a: Link til login-side -->
+				<!-- btn p-0 border-0: gør billedet klikbart som en knap uden padding eller kant -->
+				<a href="login.html" class="btn p-0 border-0">
+					<!-- img-fluid: Skalerbart billede -->
+					<img src="img/user/user_50x50.png" alt="Login ikon – klik for at logge ind på din konto" class="img-fluid">
+				</a>
+				<!-- Beskrivende tekst under ikonet -->
+				<div class="fw-bold">Login</div>
+			</div>
+
+			<!-- ==== Kurv-knap ==== -->
+			<!-- text-center: Centrerer kurvelementet -->
+			<div class="text-center">
+				<!-- a: Link til kurv-side -->
+				<!-- btn p-0 border-0: Gør billedet klikbart uden padding eller kant -->
+				<a href="kurv.html" class="btn p-0 border-0">
+					<!-- img-fluid: Skalerbart billede -->
+					<img src="img/kurv/kurv_48X48.png" alt="Indkøbskurv ikon – klik for at se din kurv" class="img-fluid">
+				</a>
+				<!-- Beskrivende tekst under ikonet -->
+				<div class="fw-bold">Kurv</div>
+			</div>
+
+		</div> <!-- Slut på col-4 til login og kurv -->
+
+	</div> <!-- Slut på row -->
+</header> <!-- Slut på header -->
+
+
+
+<!-- Anden række: Menulinje -->
+<div class="container-fluid bg-black">
+	<!-- "container-fluid": Bootstrap container der fylder hele skærmens bredde -->
+	<!-- "bg-black": Sort baggrundsfarve via Bootstrap-klasse -->
+
+	<div class="row justify-content-center">
+		<!-- "row": Starter en ny række i Bootstrap grid -->
+		<!-- "justify-content-center": Centrerer den indre kolonne horisontalt -->
+
+		<div class="col-12 col-md-10">
+			<!-- "col-12": Fylder hele bredden på små skærme -->
+			<!-- "col-md-10": Fylder 10/12 af bredden på skærme ≥ 768px -->
+			<!-- Denne kolonne indeholder selve navigationen -->
+
+			<nav class="d-flex justify-content-between text-white fw-bold py-2">
+				<!-- "nav": Semantisk HTML-element til navigation -->
+				<!-- "d-flex": Gør indholdet til et Flexbox-layout -->
+				<!-- "justify-content-between": Placerer første og sidste element yderst – resten fordeles jævnt -->
+				<!-- "text-white": Hvid tekstfarve (gælder for alle links indeni) -->
+				<!-- "fw-bold": Gør teksten fed -->
+				<!-- "py-2": Padding top og bund = 2 (y-aksen) → giver luft over og under menulinjen -->
+
+				<a class="nav-link text-white" href="#">Militær</a>
+				<!-- "nav-link": Bootstrap-klasse til styling af navigationselementer -->
+				<!-- "text-white": Gør linket hvidt -->
+				<a class="nav-link text-white" href="#">Politi & Vagt</a>
+				<a class="nav-link text-white" href="pro_oversigt.html">Jagt</a>
+				<a class="nav-link text-white" href="#">Outdoor</a>
+				<a class="nav-link text-white" href="#">Tøj & Sko</a>
+				<a class="nav-link text-white" href="#">TILBUD</a>
+				<!-- Alle links er ens stylet og fordeles automatisk vandret via Flexbox -->
+			</nav>
+
+		</div> <!-- Lukker kolonnen med navigation -->
+	</div> <!-- Lukker .row -->
+</div> <!-- Lukker container-fluid med sort baggrund -->
+
+
+
+<br>  <!-- BR Står for "break" og er en forkortelse for line break – altså linjeskift. Billede menu valg sektion start. -->
+
+
+<!-- Sektion med billedkort/kategorier – præsenteret i et grid-layout
+- container-fluid: Strækker sig over hele bredden
+- my-5: Bootstrap spacing – margin-top og margin-bottom (3rem = 48px)
+- M = Margin = Afstand
+- Y = Vertical axis (både top og bottom)
+- 5 = Størrelsen (ud fra Bootstrap’s spacing-skala – 5 betyder 3rem = 48px)-->
+<div class="container-fluid my-5">
+
+	<!-- Række til centrering af indholdet i bredden
+    - justify-content-center: Centrerer indholdet vandret (Bootstrap flex utility)-->
+	<div class="row justify-content-center">
+
+		<!--Indre kolonne, der holder kortgitteret:
+        - col-12: Fylder hele bredden på små skærme
+        - col-md-10: Fylder 10 ud af 12 kolonner på mellemstore skærme og op -->
+		<div class="col-12 col-md-10">
+
+			<!-- Grid-system med responsive kolonner:
+            - row-cols-3: 3 kolonner pr. række som standard
+            - g-4: Gutter-spacing mellem kolonner og rækker (1.5rem) -->
+			<div class="row row-cols-3 row-cols-md-3 row-cols-lg-3 g-4">
+
+				<!-- 🔹 Kort 1 – Militærprodukter -->
+				<div class="col text-center">
+
+					<!-- <div>: Et generelt HTML-element, der bruges som beholder/container.
+
+                    Class="col":
+                    - Bootstrap grid-klasse (kort for "column").
+                    - Bruges inde i en .row for at definere en kolonne.
+                    - Uden tal (fx col-6), fordeler den pladsen automatisk (lige bredde sammen med andre .col).
+                    - Her betyder det: 1 af 3 kolonner pr. række i et 12-kolonne layout.
+
+                    Class="text-center":
+                    - Bootstrap utility-klasse.
+                    - Påvirker indholdet inde i div'en.
+                    - Gør at teksten og billederne i kolonnen **centreres horisontalt**.-->
+
+					<a href="#">
+
+						<!--<a>: HTML-anchor tag – bruges til at oprette links.
+                        Href="#":
+                        - Angiver linkets destination.
+                        - "#" betyder, at linket ikke går nogen steder endnu (dummy link).
+                        - Du kan senere erstatte det med en rigtig URL.
+                        Hele billedet bliver klikbart, fordi <img> ligger inde i <a>.-->
+
+						<img src="img/cal/mil.jpg" class="img-fluid" alt="Billedkategori: Militærprodukter">
+						<!-- <img>: HTML-tag til at vise et billede.
+
+                        Src="img/cal/mil.jpg":
+                        - src = "source" → stien til billedfilen.
+                        - Her betyder det, at billedet ligger i mappen img/cal og hedder mil.jpg.
+
+                        Class="img-fluid":
+                        - Bootstrap utility-klasse.
+                        - Gør billedet responsivt:
+                          → max-width: 100%; height: auto;
+                        - Det betyder, at billedet aldrig bliver større end sin container,
+                          og det tilpasser sig automatisk til skærmstørrelsen uden at blive forvrænget.
+
+                        Alt="Billedkategori: Militærprodukter":
+                        - "alt" står for "alternative tekst".
+                        - Vises hvis billedet ikke kan indlæses.
+                        - Bruges også af skærmlæsere → vigtigt for tilgængelighed og SEO.-->
+					</a> <!-- Lukker: linket der gør billedet klikbart -->
+
+				</div> <!-- Lukker: kolonnen der indeholder dette kort -->
+
+
+				<!-- Kort 2 – Jagtudstyr = SAMME FORKLARING SOM PÅ KORT 1 -->
+				<div class="col text-center"> <!-- Åbner: kolonne med jagt-billede -->
+					<a href="pro_oversigt.html"> <!-- Åbner: link til produktside -->
+						<img src="img/cal/jagt.jpg" class="img-fluid" alt="Billedkategori: Jagtudstyr">
+					</a> <!-- Lukker: <a> – link til jagt-produkter -->
+				</div> <!-- Lukker: kolonne 2 -->
+
+				<!--  Kort 3 – Soveposer og outdoor = SAMME FORKLARING SOM PÅ KORT 1  -->
+				<div class="col text-center"> <!-- Åbner: kolonne med sovepose-billede -->
+					<a href="pro_oversigt.html"> <!-- Åbner: link til sovepose-side -->
+						<img src="img/cal/sov.jpg" class="img-fluid" alt="Billedkategori: Soveposer og outdoor udstyr">
+					</a> <!-- Lukker: <a> – soveposer -->
+				</div> <!-- Lukker: kolonne 3 -->
+
+				<!-- Kort 4 – Politi og vagtudstyr = SAMME FORKLARING SOM PÅ KORT 1 -->
+				<div class="col text-center"> <!-- Åbner: kolonne med politi/vagt -->
+					<a href="#"> <!-- Åbner: ikke-linket endnu -->
+						<img src="img/cal/poli.jpg" class="img-fluid" alt="Billedkategori: Udstyr til politi og vagt">
+					</a> <!-- Lukker: <a> – politiudstyr -->
+				</div> <!-- Lukker: kolonne 4 -->
+
+				<!-- Kort 5 – Tøj og sko = SAMME FORKLARING SOM PÅ KORT 1 -->
+				<div class="col text-center"> <!-- Åbner: kolonne med tøj/sko -->
+					<a href="#"> <!-- Åbner: tomt link -->
+						<img src="img/cal/støv.jpg" class="img-fluid" alt="Billedkategori: Tøj og sko til outdoor og taktisk brug">
+					</a> <!-- Lukker: <a> – tøj og sko -->
+				</div> <!-- Lukker: kolonne 5 -->
+
+				<!-- Kort 6 – Tilbud og kampagner = SAMME FORKLARING SOM PÅ KORT 1 -->
+				<div class="col text-center"> <!-- Åbner: kolonne med tilbudsbillede -->
+					<a href="#"> <!-- Åbner: tomt link -->
+						<img src="img/cal/til.jpg" class="img-fluid" alt="Billedkategori: Aktuelle tilbud og kampagner">
+					</a> <!--Lukker: <a> – tilbudsbillede -->
+				</div> <!--Lukker: kolonne 6 -->
+
+
+			</div> <!-- Lukker: .row med alle kortene -->
+
+		</div> <!-- Lukker: col-12 col-md-10 – wrapper til gitteret -->
+
+	</div> <!-- Lukker: row justify-content-center -->
+
+</div> <!-- Lukker: container-fluid my-5 – hele sektionen -->
+
+
+
+<!-- Majs hits sektionen starter -->
+
+<div class="container-fluid my-5">
+	<!-- "container-fluid" = fuld bredde container -->
+	<!-- "my-5" = margin-top og margin-bottom = 5 (luft over og under sektionen) -->
+
+	<div class="row justify-content-center">
+		<!-- "row" = Bootstrap grid række -->
+		<!-- "justify-content-center" = centrerer det indre indhold horisontalt -->
+
+		<div class="col-12 col-md-10">
+			<!-- "col-12" = 100% bredde på mobil -->
+			<!-- "col-md-10" = 10/12 bredde på mellemstore og større skærme -->
+
+			<h5 class="text-center mb-4">Majs Hits</h5>
+			<!-- "h5" = overskrift niveau 5 -->
+			<!-- "text-center" = centreret tekst -->
+			<!-- "mb-4" = margin-bottom = 4 → luft under overskriften -->
+
+			<div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
+				<!-- "row" = ny række -->
+				<!-- "row-cols-2" = 2 kolonner på mobil -->
+				<!-- "row-cols-md-2" = 2 kolonner på mellemstore skærme -->
+				<!-- "row-cols-lg-4" = 4 kolonner på store skærme -->
+				<!-- "g-4" = gutter spacing mellem kolonner og rækker -->
+
+				<!-- Kort 1 -->
+				<div class="col text-center">
+					<!-- "col": En Bootstrap-kolonne – bredden bestemmes af .row's "row-cols-*" -->
+					<!-- "text-center": Centrerer ALT indhold i kolonnen (billede, overskrift og tekst) vandret -->
+
+					<img src="img/majHits/sæt.jpg" class="img-fluid" alt="Camouflage jakke – ideel til jagt og outdoor">
+					<!-- <img>: Indsætter et billede i HTML -->
+					<!-- "Img-fluid": Bootstrap-klasse der gør billedet responsivt – dvs. det skalerer efter skærmstørrelsen -->
+					<!-- "alt": Alternativ tekst til billedet – vigtigt for skærmlæsere og SEO -->
+
+					<h5 class="mt-2">Camouflage Jakke</h5>
+					<!-- <h5>: Overskrift niveau 5 – bruges her som produktets titel -->
+					<!-- "mt-2": Bootstrap-klassen 'margin-top 2' – giver luft over overskriften -->
+
+					<p>Perfekt til jagt og outdoor – slidstærk og åndbar i dansk design.</p>
+					<!-- <p>: Paragraph-tag (afsnit). Bruges til almindelig brødtekst. -->
+					<!-- Det er et blok-element og tilføjer automatisk luft før og efter teksten -->
+					<!-- Her bruges det som produktbeskrivelse -->
+				</div>
+
+
+
+				<!-- Kort 2 -->
+				<div class="col text-center">
+					<!-- Ny kolonne med centreret indhold -->
+
+					<img src="img/majHits/radio.jpg" class="img-fluid" alt="Taktisk radio med håndsving, lys og powerbank">
+					<!-- Produktbillede med alt-tekst – optimeret for mobil -->
+
+					<h5 class="mt-3">Taktisk Radio</h5>
+					<!-- Overskrift med lidt større margin-top (3) for bedre afstand -->
+
+					<p>Oplades med håndsving – har både lys, radio og powerbank.</p>
+					<!-- <p>: Bruges som beskrivende afsnit -->
+					<!-- Gør teksten læsbar og adskiller indholdet korrekt semantisk -->
+				</div>
+
+
+				<!-- Kort 3 -->
+				<div class="col text-center">
+					<!-- Kolonne nr. 3 – samme layoutstruktur -->
+
+					<img src="img/majHits/mad.jpg" class="img-fluid" alt="Tactical Foodpack – Bolognese til outdoor brug">
+					<!-- Responsivt billede af produktet med informativ alt-tekst -->
+
+					<h5 class="mt-3">Tactical Foodpack</h5>
+					<!-- Overskrift for produktnavn – margin-top 3 giver visuel luft -->
+
+					<p>Bolognese med lang holdbarhed – bare tilsæt varmt vand.</p>
+					<!-- <p>: Paragraph (afsnit) med produktbeskrivelse -->
+					<!-- Bruges til kort tekst der uddyber funktion eller fordele -->
+				</div>
+
+
+				<!-- Kort 4 -->
+				<div class="col text-center">
+					<!-- Sidste kolonne i rækken – ens opsætning for konsistens -->
+
+					<img src="img/majHits/vand.jpg" class="img-fluid" alt="Vandrensningspakke – rens op til 50 liter">
+					<!-- Billedet er responsivt og beskrives i alt-teksten for SEO og tilgængelighed -->
+
+					<h5 class="mt-3">Vandrensning</h5>
+					<!-- Produktets navn vises som overskrift -->
+
+					<p>Rens op til 50 liter vand med én lille pakke – ideel til survival.</p>
+					<!-- <p>: Standard HTML-element til brødtekst -->
+					<!-- Automatisk afstand før og efter og god semantisk betydning -->
+
+				</div>
+				<!-- Lukker kolonnen (col text-center) for det sidste kort – indeholder billede, overskrift og <p> -->
+			</div>
+			<!-- Lukker .row med alle produktkort (4 kolonner) -->
+			<!-- f.eks. class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4" -->
+		</div>
+		<!-- Lukker col-12 col-md-10 – den indre container med padding omkring produktrækkerne -->
+	</div>
+	<!-- Lukker row justify-content-center – styrer centrering og struktur i hele sektionen -->
+</div>
+<!-- Lukker container-fluid my-5 – hele Majs Hits-sektionen, inkl. alt indhold -->
+
+
+
+<!-- Blog sektionen starter -->
+<div class="container-fluid my-5">
+	<!-- "container-fluid" = Bootstrap container der fylder hele skærmens bredde -->
+	<!-- "my-5" = margin-top + margin-bottom = 5 → luft over og under sektionen (y-aksen) -->
+
+	<div class="row justify-content-center">
+		<!-- "row" = starter en ny række i Bootstrap grid -->
+		<!-- "justify-content-center" = centrerer indholdet vandret i rækken (x-aksen) -->
+
+		<div class="col-12 col-md-10">
+			<!-- "col-12" = 100% bredde på mobil -->
+			<!-- "col-md-10" = 10/12 bredde på skærme ≥ 768px → giver luft i siderne -->
+
+			<h5 class="text-center mb-4">Bloggen</h5>
+			<!-- "text-center" = centreret tekst -->
+			<!-- "mb-4" = margin-bottom = 4 → luft under overskriften -->
+
+			<div class="row row-cols-4 row-cols-md-4 row-cols-lg-4 g-4">
+				<!-- "row" = ny række til blogkortene -->
+				<!-- "row-cols-4" = forsøger at vise 4 kolonner som default (virker i Bootstrap 5) -->
+				<!-- "row-cols-md-4" = 4 kolonner på medium skærme og op -->
+				<!-- "g-4" = gutter spacing = 4 → mellemrum mellem kolonner (x- og y-aksen) -->
+
+				<!-- Kort 1 -->
+				<div class="col text-center">
+					<!-- "col" = Bootstrap-kolonne, bredde styres af "row-cols-*" i overordnet .row -->
+					<!-- "text-center" = centrerer ALT indhold inde i denne kolonne (billede, overskrift, tekst) -->
+
+					<img src="img/blog/fasan.jpg" class="img-fluid" alt="Blogbillede: Ud på tur aldrig sur – fasan på vingerne">
+					<!-- <img> = indsætter billede -->
+					<!-- "img-fluid" = Bootstrap-klasse der gør billedet responsivt (max-width: 100%; height: auto) -->
+					<!-- "alt" = alternativ tekst der vises hvis billedet ikke indlæses + bruges af skærmlæsere og søgemaskiner -->
+
+					<h5 class="mt-3">Ud på tur aldrig sur</h5>
+					<!-- <h5> = overskrift (5. niveau, mindre end h1-h4) -->
+					<!-- "mt-3" = margin-top: 3 → giver luft mellem billedet og overskriften (y-aksen) -->
+
+					<p>Hvor går din næste tur hen ?</p>
+					<!-- <p>: Paragraph (afsnit-->
+					<!-- Bruges her som undertekst til kortet -->
+				</div>
+
+
+				<!-- Kort 2 = SAMME FORKLARING SOM PÅ KORT 1 -->
+				<div class="col text-center">
+					<!-- "col" = kolonne -->
+					<!-- "text-center" = centrerer indhold -->
+
+					<img src="img/blog/mad.jpg" class="img-fluid" alt="Blogbillede: Vild mad med ramsløg">
+					<!-- Responsivt billede med korrekt alternativ tekst -->
+
+					<h5 class="mt-3">Vildt på gaflen</h5>
+					<!-- Overskrift med luft over -->
+
+					<p>Let god og sund opskrift på vild deller med ramsløg</p>
+					<!-- Brødtekst med kort beskrivelse -->
+					<!-- <p>: Paragraph (afsnit) -->
+				</div>
+
+
+
+				<!-- Kort 3 = SAMME FORKLARING SOM PÅ KORT 1 -->
+				<div class="col text-center">
+					<!-- Kolonne og centreret indhold -->
+
+					<img src="img/blog/outdoor.jpg" class="img-fluid" alt="Blogbillede: Outdoor setup med bål og grej">
+					<!-- Billede der automatisk tilpasser sig bredde og bevarer højdeproportioner -->
+
+					<h5 class="mt-3">Outdoor tricks</h5>
+					<!-- Overskrift med lidt luft over -->
+
+					<p>5 hurtige måder at få varmen på ude i naturen</p>
+					<!-- P-tag bruges til beskrivende tekst under overskriften -->
+					<!-- <p>: Paragraph (afsnit)-->
+				</div>
+
+
+				<!-- Kort 4 = SAMME FORKLARING SOM PÅ KORT 1  -->
+				<div class="col text-center">
+					<!-- Kolonne med centreret indhold -->
+
+					<img src="img/blog/patron.jpg" class="img-fluid" alt="Blogbillede: Patroner og udstyr til jagt og outdoor">
+					<!-- Responsivt billede + god alt-tekst for tilgængelighed og SEO -->
+
+					<h5 class="mt-3">Det rette valg?</h5>
+					<!-- Overskrift med top-margin -->
+
+					<p>Find den rette produkt til den næste oplevelse</p>
+					<!-- Undertekst med almindelig paragraftekst -->
+					<!-- <p>: Paragraph (afsnit)-->
+				</div>
+
+			</div> <!-- Lukker .row med blogkort -->
+		</div> <!-- Lukker col-12 col-md-10 -->
+	</div> <!-- Lukker row justify-content-center -->
+</div> <!-- Lukker container-fluid my-5 -->
+
+
+
+
+
+<!-- ========== Footer med kontakt, showroom og betalingsoplysninger ==========
+
+Denne footer er opbygget med Bootstrap’s grid-system.
+Klasser:
+- container-fluid: Gør footeren i fuld bredde (hele skærmens bredde)
+- pt-5: Padding-top – giver luft over (3rem / 48px)
+- bg-dark: Bootstrap-baggrundsfarve – mørk baggrund (ofte #212529)
+- text-white: Gør al tekst hvid, hvilket giver høj kontrast på mørk baggrund
+-->
+<footer class="container-fluid pt-5 bg-dark text-white">
+
+	<!-- Indre container – begrænser bredden på indholdet -->
+	<div class="container">
+
+		<!-- Række med tre kolonner.
+        Klasser:
+        - row: Bootstrap række, bruges til at placere kolonner i.
+        - text-center: Centrerer tekst på mobil og små skærme.
+        - text-xl-start: Justerer tekst til venstre på store skærme (xl og op).
+        -->
+		<div class="row text-center text-xl-start">
+
+			<!--  Kolonne 1: Kundeservice
+            Klasser:
+            - col-12: Fylder hele bredden på små skærme (mobil)
+            - col-xl-4: Fylder 1/3 af rækken på store skærme
+            - mb-4: Margin-bottom (afstand under boksen) – 1.5rem / 24px-->
+			<div class="col-12 col-xl-4 mb-4">
+
+				<!--h5: Sektionstitel – bruges i footers til at adskille indhold-->
+				<h5>KUNDESERVICE</h5>
+
+				<!-- Kontaktinformation:
+                - <b>: Fed tekst for at fremhæve feltet (stylet med SCSS i dit projekt)
+                - <p>: Hver kontaktlinje adskilles for bedre læsbarhed-->
+				<p><b>Email</b>: INFO@GrejFreak.dk</p>
+				<p><b>Telefon</b>: 78 72 34 34</p>
+			</div>
+
+
+			<!-- Kolonne 2: Showroom og åbningstider
+            Denne kolonne viser showroomets adresse og åbningstider i en responsiv kolonne.
+            Bootstrap layoutklasser:
+            - col-12: Fylder hele bredden på små skærme
+            - col-xl-4: Fylder 1/3 af rækken på store skærme
+            - mb-4: Margin-bottom – giver luft under kolonnen (1.5rem = 24px) -->
+			<div class="col-12 col-xl-4 mb-4">
+
+				<!-- Overskrift for showroom sektionen -->
+				<h5>SHOWROOM</h5>
+
+				<p>
+					I vores showroom kan du prøve dit grej før du køber det.<br>
+
+					<!--  Adresse-link:
+                    - text-white: Bootstrap utility – gør teksten hvid, så den står klart på mørk baggrund.
+                    - text-decoration-underline: Bootstrap utility – tilføjer understregning for at vise, det er et link.-->
+					<a href="https://maps.app.goo.gl/ZXvLLEqBA9bFAQyz6" class="text-white text-decoration-underline">
+						Gunnar Clausens Vej 58, 8260 Viby J.
+					</a>
+				</p>
+
+				<!-- Underrubrik for åbningstider.
+                - mt-3: Bootstrap spacing utility – margin-top på 1rem (16px), så der er luft over.-->
+				<h6 class="mt-3">Åbningstider i showroom</h6>
+
+				<!--Liste over åbningstider:
+                - list-unstyled: Bootstrap utility class som fjerner bullets og venstre padding fra listen.
+
+                HVOR KOMMER DEN FRA?
+                Kommer fra Bootstrap-filen: _lists.scss
+
+                HVAD GØR DEN?
+                - Fjerner standard HTML-bullets (de små prikker foran hvert punkt).
+                - Fjerner indrykning (padding-left).
+
+                HVAD ER BULLETS?
+                - Bullet points = de runde prikker der vises ved <li> i en <ul>.
+                - De bruges normalt til punktopstillinger, men fjernes her for at listen ligner almindelig tekst/menupunkter.
+
+                HVORFOR BRUGER VI DET?
+                - Det ser mere stilrent ud, især i footers, menuer og kontaktoplysninger.-->
+				<ul class="list-unstyled">
+					<li><b>Mandag</b>: 10.00 - 16.30</li>
+					<li><b>Tirsdag</b>: 10.00 - 16.30</li>
+					<li><b>Onsdag</b>: 10.00 - 16.30</li>
+					<li><b>Torsdag</b>: 10.00 - 17.30</li>
+					<li><b>Fredag</b>: 10.00 - 16.30</li>
+					<li><b>Lørdag</b>: 10.00 - 14.00</li>
+					<li><b>Søndag</b>: Lukket</li>
+				</ul>
+			</div>
+
+
+
+			<!--Kolonne 3: Information Denne kolonne viser links til hjælpesider og virksomhedsoplysninger.
+            Bootstrap layout:
+            - col-12: Fuldbredde på små skærme
+            - col-xl-4: 1/3 bredde på store skærme
+            - mb-4: Giver margin under kolonnen på mobil
+            -->
+			<div class="col-12 col-xl-4 mb-4">
+
+				<!-- Sektionstitel -->
+				<h5>INFORMATION</h5>
+
+				<!-- Liste med links – vises uden bullets.
+
+                list-unstyled: Bootstrap utility class.
+
+                HVOR KOMMER DET FRA?
+                - Bootstrap SCSS utility: _lists.scss
+
+                HVAD GØR DET?
+                - Fjerner bullet points (prikker foran listen).
+                - Fjerner padding-left (indrykning), så listen flugter til venstre.
+
+                HVORFOR BRUGES DET?
+                - For at få listen til at se ud som en ren, moderne menuliste – typisk brugt i footers og navigation.-->
+				<ul class="list-unstyled">
+
+					<!--
+                    Hvert link bruger:
+                    - text-white: Bootstrap utility – gør tekst hvid.
+                    - text-decoration-none: Bootstrap utility – fjerner understregning.
+
+                    Resultat:
+                    pæne links uden underlinje, der er tydelige på mørk baggrund.-->
+					<li><a href="index.html" class="text-white text-decoration-none">Retur og Reklamation</a></li>
+					<li><a href="index.html" class="text-white text-decoration-none">GrejPedia</a></li>
+					<li><a href="index.html" class="text-white text-decoration-none">Ofte Stillede Spørgsmål</a></li>
+					<li><a href="index.html" class="text-white text-decoration-none">Showroom</a></li>
+					<li><a href="index.html" class="text-white text-decoration-none">Fordele</a></li>
+					<li><a href="index.html" class="text-white text-decoration-none">Kundeklub</a></li>
+					<li><a href="index.html" class="text-white text-decoration-none">Om os</a></li>
+				</ul>
+			</div>
+
+			<!-- ========== Anden række: Betaling og copyright ========== -->
+			<!-- justify-content-center: Centrerer kolonnen horisontalt -->
+			<div class="row justify-content-center">
+				<!-- col-12: Fuld bredde på mobil -->
+				<!-- col-md-6: Halvdelen af rækken fra md og op -->
+				<!-- text-center: Centrerer både billeder og tekst -->
+				<!-- payment-logos: Egen stylingklasse til logoer -->
+
+				<!-- img: Billeder af betalingsikoner -->
+				<!-- alt: Alternativ tekst til skærmlæsere og SEO -->
+				<div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center payment-logos mb-2">
+					<!-- col-12: Fuld bredde på mobil -->
+					<!-- col-md-6: Halvdelen af rækken fra md og op -->
+					<!-- text-center: Centrerer både billeder og tekst -->
+					<!-- payment-logos: Egen stylingklasse til logoer -->
+
+					<!-- img: Billeder af betalingsikoner -->
+					<!-- alt: Alternativ tekst til skærmlæsere og SEO -->
+					<img src="img/masterCard.png" alt="Betalingskort: Mastercard logo">
+					<img src="img/dankort.png" alt="Betalingskort: Dankort logo">
+					<img src="img/gls.png" alt="Fragtfirma: GLS leveringslogo">
+
+					<!-- p: Afsnit med copyright og CVR -->
+					<!-- mb-0: Ingen margin-bottom -->
+					<!-- mt-2: Margin-top på 0.5rem (8px) -->
+					<p class="mb-0 mt-2">
+						© 2025 GrejFreak.dk<br>
+						CVR 31585538
+					</p> <!--Lukker: <p class="mb-0 mt-2"> – afsnit med ophavsret og CVR-nummer -->
+
+				</div> <!--Lukker: <div class="col-12 col-sm-12 col-md-6 col-lg-6 ..."> – kolonne med betalingsikoner og bundtekst -->
+
+			</div> <!-- Lukker: <div class="row"> – rækken der indeholder footer 2 kolonner -->
+
+		</div> <!--Lukker: <div class="row"> – rækken der indeholder footer 2 kolonner -->
+
+	</div> <!--Lukker: <div class="container"> – indre container der begrænser bredden på footer indhold -->
+
+</footer>  <!-- Lukker: <footer class="container-fluid pt-5 bg-dark text-white"> – hele footeren -->
+
+</body> <!-- Lukker <body> – hele det synlige indhold på siden -->
+
+</html> <!-- Lukker <html> – hele HTML-dokumentet -->

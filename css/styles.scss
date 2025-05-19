@@ -1,0 +1,284 @@
+
+// 1. Inkluder Bootstrap's funktioner først
+// Dette gør det muligt at bruge funktioner som f.eks. farvejusteringer og matematik før resten indlæses.
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+
+@import "../node_modules/bootstrap/scss/functions";
+
+
+// 2. Overstyr standardvariabler (før Bootstrap selv indlæses)
+//
+// HVAD: Her definerer vi **SCSS-variabler**, som bruges til at gemme værdier
+// (som farver, skrifttyper, dekorationsregler osv.).
+//
+// OM `$`: Alle SCSS-variabler starter med `$` – det betyder "variabel", altså en navngivet værdi,
+// kan genbruge overalt i kode. F.eks. $grejfreak-orange = #e84f15.
+//
+// HVORFOR: definerer disse variabler **før vi importerer Bootstrap-variablerne**,
+// fordi SCSS ellers ikke vil bruge vores versioner. Bootstrap har selv default-variabler,
+// men hvis vi sætter vores værdier først, så bliver de brugt i stedet.
+//
+// FORDELE:
+// - Du skal kun ændre farver eller skrifttyper ét sted.
+// - Din kode bliver nemmere at læse, vedligeholde og opdatere.
+// - Det sikrer ensartethed i designet.
+// - Du kan tilpasse Bootstrap til dit eget brand uden at rode i Bootstrap-filerne.
+//
+// ALMINDELIG CSS kan ikke dette – SCSS giver dig **mere magt og bedre struktur**.
+
+$link-decoration: none;              // Fjerner understregning fra links globalt (ændrer Bootstrap-default)
+$grejfreak-orange: #e84f15;          // Primær brandfarve – bruges i fx overskrifter og CTA-knapper
+$grejfreak-baggrund: #EFEBE2;        // Lys baggrund – bruges som body-baggrund
+$grejfreak-footer: #1F1F1F;          // Mørk gråsort farve til footer
+$grejfreak-grøn: #284510;            // Dyb grøn farve til menuer, badges, elementer
+$font-grejfreak: 'Exo 2', sans-serif; // Brugerdefineret skrifttype – til hele layoutet
+
+
+// 3. Include remainder of required Bootstrap stylesheets
+//
+// HVAD: Disse linjer importerer Bootstrap's **core-variabler** og **dark-mode-variabler**.
+//
+// @import:
+// - I SCSS bruges `@import` til at hente andre SCSS-filer og inkludere deres indhold her.
+// - Det svarer til at "klippe indholdet ind", som om det stod i denne fil.
+//
+// HVORFOR:
+// - Vi importerer disse filer **efter** vores egne variabler (blok 2),
+//   så Bootstrap bruger vores overstyringer frem for sine egne standarder.
+//
+// HVAD INDEHOLDER DE?
+// - `variables.scss` indeholder ALLE standard-variabler i Bootstrap (farver, padding, fonts, breakpoints osv.)
+// - `variables-dark.scss` indeholder samme struktur, men tilpasset til mørke temaer (dark mode)
+//
+// RESULTAT:
+// - Efter dette punkt kender SCSS alle Bootstrap-variablerne.
+// - Og da vi skrev vores egne værdier før, vil de allerede være i brug i Bootstrap’s system.
+//
+// OBS: Dette er et centralt punkt i SCSS-filerne – **herfra bliver din tilpasning en del af Bootstrap's motor.**
+
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+
+// 4. Include any default map overrides here
+//
+// HVAD: Her definerer vi en SCSS "map" kaldet `$custom-colors`.
+// - Et map i SCSS svarer til en slags **liste med navngivne værdier** (som en ordbog).
+// - Det minder om JSON eller et key-value-par: "navn": værdi.
+//
+// FORMÅL:
+// - Vi bruger `$custom-colors` til at definere **vores egne farver**,
+//   så de kan bruges i Bootstrap-komponenter via `$theme-colors`.
+// - Det gør det muligt at bruge f.eks. `text-grejfreak`, `bg-footer`, `border-proMenu`, osv.
+//
+// STRUKTUREN:
+// - "farve": $cyan-400;           // En Bootstrap-farve som test (valgfri)
+// - "grejfreak": $grejfreak-orange;  // Din primære orange brandfarve
+// - "bagfarve": $grejfreak-baggrund; // Baggrundsfarve
+// - "footer": $grejfreak-footer;    // Footer-baggrundsfarve
+// - "proMenu": $grejfreak-grøn;     // Sekundær grøn farve, fx til menuer eller knapper
+//
+// HVORFOR:
+// - Ved at definere `$custom-colors` som et map, kan vi **merge det ind i Bootstrap’s `$theme-colors`** senere.
+// - Det giver os adgang til Bootstrap’s utility-klasser – men med **vores egne farver**!
+//   F.eks. `.bg-grejfreak`, `.text-footer`, `.border-proMenu`, osv.
+//
+// VÆRDI:
+// - Det her er en smart og struktureret måde at integrere dine brandfarver direkte i Bootstrap.
+// - Du får al funktionalitet og genkendelig navngivning – uden at skrive custom classes til alt.
+
+$custom-colors: (
+				"farve": $cyan-400,
+				"grejfreak": $grejfreak-orange,
+				"bagfarve": $grejfreak-baggrund,
+				"footer": $grejfreak-footer,
+				"proMenu": $grejfreak-grøn,
+);
+
+
+// Slå vores egne farver sammen med Bootstrap's standard farver
+//
+// HVAD:
+// - `$theme-colors` er en Bootstrap-variabel, der indeholder alle de farver,
+//   som bruges til utility-klasser som `.bg-primary`, `.text-success`, `.border-warning`, osv.
+//
+// - `map-merge()` er en SCSS-funktion, der **kombinerer to maps** – altså to lister af navngivne værdier.
+//   Den tager først det oprindelige map ($theme-colors) og tilføjer eller overskriver med vores eget ($custom-colors).
+//
+// HVORFOR:
+// - Dette gør, at dine egendefinerede farver fra `$custom-colors` bliver en del af Bootstrap's farvesystem.
+// - Det betyder, du kan bruge dine egne navne som `.bg-grejfreak`, `.text-footer`, `.border-proMenu`, osv. direkte i HTML og SCSS.
+//
+// FORDEL:
+// - Du undgår at skulle skrive specialklasser til hver farve – Bootstrap-klasserne virker med dine egne navne!
+// - Du bevarer al Bootstrap-funktionalitet, men med dit eget brand.
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+// Importér dine egne Bootstrap-komponenter her
+//
+// 🔹 HVAD:
+// - Her importerer du din egen fil `"bootstrapComponents"`, som kan indeholde
+//   overskrevet eller udvalgt Bootstrap-kode – eller custom styling, mixins og komponenter.
+//
+// 🔹 FORDEL:
+// - Det giver dig fuld kontrol over hvilke Bootstrap-dele, du bruger – og hvordan de ser ud.
+// - Du kan holde al din stilrene Grejfreak-styling samlet ét sted.
+
+@import "bootstrapComponents";
+
+
+// 5. Du kan lave styling her...
+
+// Det her er det perfekte sted til at begynde at skrive din egen styling.
+// - Alt hvad du skriver nu vil have adgang til dine variabler og Bootstrap’s strukturer.
+// - Du kan nu bruge dine egne farver, fonts, utilities og mixins.
+
+
+// ID: <body> – Hele sidens grundstruktur
+
+// Denne styling gælder for hele body-elementet (selve "skelettet" af siden).
+// Den sikrer, at layout, baggrund og skrifttype følger brandets designstandarder,
+// og den gør siden responsiv med flexbox.
+// <body> er IKKE et ID i sig selv, men et HTML-element – det er alligevel her,
+// man definerer grundindstillingerne for alt, der vises på skærmen.
+body {
+	background-color: $grejfreak-baggrund;  // Brugerdefineret baggrundsfarve (lys beige tone)
+	font-family: $font-grejfreak;           // Bruger brandets skrifttype (Exo 2)
+	min-height: 100vh;                      // Body fylder hele skærmen i højden
+	display: flex;                          // Flexbox container
+	flex-direction: column;                // Vertikal stacking: header → main → footer
+	overflow-x: hidden;                    // Forhindrer vandret scroll på hele siden
+
+
+	// .sticky-info – Fastgjort infoboks under scroll på Produkt siden
+
+	// Denne klasse bruges til elementer, der skal “klæbe” til toppen af skærmen,
+	// når brugeren scroller ned. Det er især nyttigt til infobokse, CTA’er, knapper
+	// eller navigations-elementer, der skal være synlige hele tiden.
+
+	.sticky-info {
+		position: sticky;   // CSS-egenskab der “klistrer” elementet, når det scrolles til positionen
+		top: 100px;         // Elementet bliver stående 100px fra toppen af vinduet
+	}
+
+}
+
+
+
+// SCSS: Variabler, fuglereder (nested rules), mixins
+
+// SCSS er en udvidelse af CSS, som gør det lettere at arbejde med styling.
+// Det giver mulighed for:
+// - variabler ($) som genbruges mange steder
+// - fuglereder (nested rules) der spejler HTML-strukturen
+// - mixins og funktioner, som sparer dig for gentagelser
+//
+// Når SCSS "compiles" (oversættes), bliver det til almindelig CSS,
+// som browseren kan læse. Du skriver smartere – browseren får ren CSS.
+
+
+
+// Overskrifter (h1–h6)
+
+// Her styles alle overskriftsniveauer på én gang, så de følger dit brand.
+// Det er effektivt med SCSS, fordi du kan samle reglerne ét sted.
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-grejfreak;       // Din valgte skrifttype
+	color: $grejfreak-orange;           // Din brandfarve (orange)
+	font-weight: bold;                  // Gør overskrifterne tydeligt markeret
+}
+
+
+
+//Fed tekst – <b>
+
+// Her gives den samme styling som overskrifter til <b>-elementer.
+
+b {
+	color: $grejfreak-orange;           // Gør fed tekst brandfarvet
+	font-weight: bold;                  // Gør det visuelt tydeligere
+}
+
+
+
+// .gf-heading – Genanvendelig over skrift
+
+// Bruges som specialklasse til overskrifter, som skal centreres og skille sig ud.
+// F.eks. i sektioner, hvor du ikke vil bruge <h1>, men stadig have den samme stil.
+
+.gf-heading {
+	font-family: $font-grejfreak;       // Samme font som resten af sitet
+	color: $grejfreak-orange;           // Holder brandidentiteten
+	font-weight: bold;                  // Gør det kraftigt og synligt
+	text-align: center;                 // Centrerer teksten
+	margin-bottom: 2rem;                // Giver luft under – bedre visuel balance
+}
+
+
+
+
+
+// .hero-img – Billedet øverst i layoutet
+
+// Denne klasse bruges til store topbilleder (hero sections).
+// Det sikrer, at billedet fylder hele bredden, men ikke bliver alt for højt.
+// `object-fit: cover` sørger for at billedet beskæres korrekt uden at forvrænge det.
+// Det giver et professionelt udtryk på tværs af skærmstørrelser.
+
+.hero-img {
+	width: 100%;             // Fylder hele containerens bredde
+	max-height: 500px;       // Begrænser højden, så det ikke fylder for meget
+	object-fit: cover;       // Beskærer billedet pænt uden forvrængning
+	display: block;          // Fjerner uønsket mellemrum under billedet (default for <img>)
+}
+
+
+// <footer> – Nederste sektion af siden
+
+// Her styles footeren med mørk baggrund og brandets skrifttype.
+// Alt indhold indeni er struktureret i fuglereder (nested rules),
+// så det matcher HTML’en og er lettere at overskue og vedligeholde.
+
+footer {
+	background-color: $grejfreak-footer;    // Mørk farve som baggrund
+	font-family: $font-grejfreak;           // Brandets skrifttype
+
+
+	// main (kun relevant i flex-layouts)
+
+	// Selvom <main> typisk ikke ligger inde i <footer>,
+	// er denne regel måske fejlplaceret. Hvis det var et uheld, bør den flyttes ud.
+	// Den har ingen virkning her og bør sandsynligvis ligge udenfor footer-blokken.
+	main {
+		flex: 1;  // [OBS!] Bør flyttes ud – har ikke effekt her inde i <footer>
+	}
+
+
+	// .payment-logos img
+
+	// Styling af betalingsikoner i bunden af siden.
+	// Giver passende størrelse og afstand mellem logoerne.
+	.payment-logos img {
+		height: 40px;        // Ens højde for alle logoer
+		margin: 0 10px;      // Vandret afstand mellem dem
+	}
+
+	// .aabningstider li
+
+	// Styling af åbningstider vist i listeform – uden punkttegn og med hvid tekst.
+	.aabningstider {
+		li {
+			color: white;            // Kontrast mod mørk footer baggrund
+			list-style: none;        // Fjerner standard bullet-points
+		}
+	}
+}
+
+
+
+
+

@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<!-- Angiver at dette dokument er skrevet i HTML5 -->
+
+<html lang="da">
+<!-- Starter HTML-dokumentet og sætter sprog til dansk -->
+
+<!-- =================== HEAD: Metadata og opsætning =================== -->
+<!-- <head>: Indeholder information om dokumentet, som ikke vises direkte i browseren -->
+<!-- Bruges til at linke stilark, scripts, definere titel, SEO-data m.m. -->
+<head>
+
+    <!-- Angiver tegnsættet som UTF-8 -->
+    <!-- Gør det muligt at vise danske bogstaver og specialtegn korrekt -->
+    <meta charset="utf-8">
+
+    <!-- Titel på hjemmesiden – vises i browserens faneblad og i søgeresultater -->
+    <title>Jagtudstyr & Camouflagetøj til Jægere | GrejFreak.dk</title>
+
+    <!-- Søgemaskine-indeks: Tillader alle robotter at indeksere siden -->
+    <meta name="robots" content="All">
+
+    <!-- Forfatter-angivelse (SEO eller info) -->
+    <meta name="author" content="Udgiver">
+
+    <!-- Ophavsretlig information (brugbar for søgemaskiner og værktøjer) -->
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- ========== STIL & DESIGN ========== -->
+
+    <!-- Link til ekstern CSS-stylesheet -->
+    <!-- Indeholder hele sidens layout og designregler -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Gør layoutet responsivt på alle enheder -->
+    <!-- width=device-width = brugerens skærmbredde -->
+    <!-- initial-scale=1 = ingen zoom ved load -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link til SCSS-fil (bemærk: SCSS skal normalt kompileres til CSS først) -->
+    <link rel="stylesheet" href="css/styles.scss">
+
+    <!-- Bootstrap JavaScript-bibliotek indlæst via CDN -->
+    <!-- Bruges til funktioner som dropdown, collapse, modals m.m. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Hele headeren er pakket ind i en container-fluid for at strække sig over hele bredden.
+py-5: Bootstrap spacing – padding-top og padding-bottom = 3rem (48px)-->
+<header class="container-fluid py-5">
+
+    <!--Bootstrap-row til at opdele headeren i 3 kolonner (logo – søgefelt – login/kurv)
+    justify-content-center: Centrerer indhold horisontalt.
+    align-items-center: Justerer alle kolonner lodret i midten (i højden).-->
+    <div class="row justify-content-center align-items-center">
+
+        <!-- Logo-sektion
+        col-4: Fylder 4 ud af 12 kolonner (1/3 af rækken)
+        text-center: Centrerer logoet horisontalt i kolonnen -->
+        <div class="col-4 text-center">
+            <!-- Klikbart logo -->
+            <a href="index.html">
+                <img src="img/logo.png" alt="GrejFreak logo" class="img-fluid">
+                <!--
+                Img-fluid: Bootstrap utility → gør billedet responsivt.
+                alt: Beskrivelse for tilgængelighed og SEO.
+                -->
+            </a>
+        </div> <!-- Lukker: logo-kolonne -->
+
+        <!--Søgefelt – midten af headeren
+        col-4: Fylder 1/3 af rækken-->
+        <div class="col-4">
+
+            <!-- <form>: Semantisk korrekt til søgefunktion.
+            d-flex: Gør formen til en flex-container
+            align-items-center: Centrerer inputfeltet lodret. -->
+            <form class="d-flex align-items-center">
+
+                <input class="form-control me-2" type="search" placeholder="SØG" aria-label="Søg">
+                <!-- Form-control: Bootstrap styling for inputfelter.
+                me-2: Margin-end (højre) – afstand til evt. knap.
+                placeholder: Hjælpetekst i feltet.
+                aria-label: For skærmlæsere – tilgængelighed.-->
+
+            </form><!-- Lukker: Form-kolonne -->
+
+        </div> <!-- Lukker: søgefelt-kolonne -->
+
+        <!-- Login og Kurv – højre side
+        col-4: Fylder sidste tredjedel.
+        d-flex: Lægger login og kurv ved siden af hinanden.
+        justify-content-center: Centrerer dem samlet.
+        gap-4: Giver horisontal afstand mellem elementerne.-->
+        <div class="col-4 d-flex justify-content-center gap-4">
+
+            <!-- Login-knap (wrapper)
+            <div class="text-center">:
+            - <div>: Almindelig HTML-container – bruges til at holde billedet + teksten sammen.
+            - class="text-center": Bootstrap utility class der centrerer alt indhold vandret i containeren.
+            → Det gælder både billedet og teksten under det.
+            → Svarer til CSS: text-align: center;-->
+            <div class="text-center">
+
+                <!--<a>: Gør ikonet klikbart og fører til login.html
+                class="btn": Bootstrap-knap (selvom vi bruger det på et ikon, for at kunne style)
+                p-0: Padding = 0 (fjerner luft omkring billedet)
+                border-0: Fjerner standard-kant fra Bootstrap-knap-->
+                <a href="login.html" class="btn p-0 border-0">
+
+                    <!--<img>: Viser login-ikon
+                    - src: Sti til billede
+                    - alt: Alternativ tekst → vigtigt for tilgængelighed
+                    - img-fluid: Gør billedet responsivt – tilpasser sig sin container-->
+                    <img src="img/user/user_50x50.png" alt="Ikon til login-side" class="img-fluid">
+                </a>
+
+                <!--
+                <div class="fw-bold">:
+                - Viser teksten "Login" under ikonet
+                - fw-bold: Bootstrap utility → font-weight: bold (gør teksten fed)
+                - text-center fra wrapper sikrer centreret tekst
+                -->
+                <div class="fw-bold">Login</div>
+            </div> <!--Lukker: Login-knap -->
+
+
+
+            <!-- Kurv-knap – vises som ikon med tekst under
+            <div class="text-center">:
+            - Wrapper til hele kurv-elementet.
+            - Bootstrap utility class "text-center":
+            → Gør at både ikonet og teksten nedenunder bliver **centreret horisontalt.
+            → Svarer til CSS: text-align: center;-->
+            <div class="text-center">
+
+                <!-- <a href="kurv.html">:
+                - Gør ikonet klikbart og sender brugeren til "kurv.html".
+                - class="btn": Bootstrap-knapklasse (giver mulighed for styling og hover-effekt).
+                - p-0: Padding = 0 → fjerner ekstra luft omkring billedet.
+                - border-0: Fjerner standardknapkant → gør billedet rent og simpelt.-->
+                <a href="kurv.html" class="btn p-0 border-0">
+
+                    <!--<img>: Viser ikon for kurven.
+                    - src: Sti til billedet.
+                    - alt: Beskrivelse af billedets funktion – vigtigt for tilgængelighed og SEO.
+                    - class="img-fluid": Bootstrap-klassen der gør billedet responsivt.
+                      → Det betyder, at det automatisk tilpasser sig containerens bredde og skærmstørrelse. -->
+                    <img src="img/kurv/kurv_48X48.png" alt="Ikon til indkøbskurv" class="img-fluid">
+                </a>
+
+                <!-- <div class="fw-bold">:
+                - Viser teksten "Kurv" under ikonet.
+                - fw-bold: Bootstrap utility der gør teksten fed.
+                - Arver text-align: center fra forælderens "text-center".-->
+                <div class="fw-bold">Kurv</div>
+
+            </div> <!-- Lukker: kurv-knap-wrapper -->
+
+        </div> <!-- Lukker: kolonne med login og kurv -->
+
+    </div> <!-- Lukker: header-row -->
+
+</header> <!-- Lukker: hele header-sektionen -->
+
+
+
+<!--Anden række: Menulinje (navigation under header)
+<div class="container-fluid bg-black">:
+- container-fluid: Bootstrap container, der fylder hele skærmens bredde.
+- bg-black: Bootstrap utility class → baggrunden bliver sort (RGB: #000).-->
+<div class="container-fluid bg-black">
+
+    <!--Row: Starter en ny række (linje) i grid-systemet.
+    justify-content-center: Centrerer indholdet horisontalt inde i rækken.-->
+    <div class="row justify-content-center">
+
+        <!-- Kolonne med 100% bredde på mobil (col-12), og maks. 10/12 bredde på skærme ≥768px (col-md-10).
+        Dette giver luft i siderne på større skærme → pæn centrering.-->
+        <div class="col-12 col-md-10">
+
+            <!-- <nav>: Semantisk HTML-element til navigation.
+            Class="d-flex justify-content-between text-white fw-bold py-2":
+            - d-flex: Gør nav til en flex-container → gør det muligt at styre placering af links.
+            - justify-content-between: Lægger det første og sidste link helt ude i siderne og fordeler resten imellem.
+            - text-white: Farver al tekst hvid – gælder alle links, medmindre det overskrives.
+            - fw-bold: Gør teksten fed (font-weight: bold).
+            - py-2: Padding-top og padding-bottom = 0.5rem (8px) → giver luft omkring linkene.-->
+            <nav class="d-flex justify-content-between text-white fw-bold py-2">
+
+                <!-- Hvert <a> er et menupunkt:
+                - nav-link: Bootstrap styling for navigation → fjerner understregning og giver hover-effekt.
+                - text-white: Sikrer at linkene forbliver hvide.
+                - href="#": Midlertidigt link (kan udskiftes med rigtig side).-->
+                <a class="nav-link text-white" href="#">Militær</a>
+                <a class="nav-link text-white" href="#">Politi & Vagt</a>
+                <a class="nav-link text-white" href="#">Outdoor</a>
+                <a class="nav-link text-white" href="#">Tøj & Sko</a>
+                <a class="nav-link text-white" href="#">TILBUD</a>
+
+            </nav> <!-- Lukker: navigation med links -->
+
+        </div> <!-- Lukker: kolonne med navigation -->
+
+    </div> <!-- Lukker: række -->
+
+</div> <!-- Lukker: container med sort baggrund -->
+
+<div class="container-fluid p-0">
+    <div class="row m-0">
+        <div class="col-12 p-0">
+            <img src="img/hær_Outdoor/family.png" alt="Outdoor familie i naturen – stemningsbillede" class="img-fluid hero-img">
+        </div>
+    </div>
+</div>
+
+<!-- Anden række: Menulinje <div class="container-fluid bg-proMenu">:
+
+- container-fluid: Bootstrap container der strækker sig over hele skærmens bredde.
+- bg-proMenu: Brugerdefineret SCSS-klasse → baggrundsfarven er defineret i dine SCSS-variabler.
+  (fx $grejfreak-grøn: #284510;)-->
+<div class="container-fluid bg-proMenu">
+
+    <!--<div class="row justify-content-center">:
+    - Starter en ny række i Bootstrap’s grid-system.
+    - justify-content-center: Centrerer kolonnen horisontalt.-->
+    <div class="row justify-content-center">
+
+        <!-- <div class="col-12 col-md-10">:
+        - col-12: Fylder hele bredden på mobil.
+        - col-md-10: Fylder 10 ud af 12 kolonner på skærme ≥768px → giver luft i siderne.-->
+        <div class="col-12 col-md-10">
+
+            <!--Nav>: Semantisk HTML5-element til navigation.
+            d-flex: Gør navigationen til en flex-container.
+            justify-content-between: Fordeler linkene jævnt med maksimal afstand imellem.
+            fw-bold: Gør teksten fed.
+            py-2: Vertical padding (øverst og nederst) = 0.5rem = 8px.-->
+            <nav class="d-flex justify-content-between text-white fw-bold py-2">
+
+                <!-- Hvert <a> er et menupunkt.
+                nav-link: Bootstrap-styling til navigation (fjerner understregning, tilføjer padding og hover).
+                text-white: Holder linkene hvide uanset baggrund.-->
+                <a class="nav-link text-white" href="pro_Side.html">Beklædning</a>
+                <a class="nav-link text-white" href="#">Udstyr</a>
+                <a class="nav-link text-white" href="#">Kikkert</a>
+                <a class="nav-link text-white" href="#">Outdoor</a>
+                <a class="nav-link text-white" href="#">Sko</a>
+                <a class="nav-link text-white" href="#">TILBUD</a>
+            </nav> <!-- Lukker navigation -->
+
+        </div> <!-- Lukker kolonne -->
+
+    </div> <!-- Lukker række -->
+
+</div> <!-- Lukker container med grøn baggrund -->
+
+<!-- <br>: Laver visuel afstand under menulinjen -->
+<br>
+
+
+<!--Produktkort – ét enkelt produkt vises i et responsivt grid
+<div class="container py-5">:
+- container: Bootstrap-container med fast bredde og horisontal padding.
+- py-5: Padding-top og padding-bottom = 3rem (48px) → luft over og under sektionen.-->
+<div class="container py-5">
+
+    <!-- <div class="row">:
+    - Starter en ny række i grid-layoutet.
+    - Her kan vi placere flere produktkolonner ved siden af hinanden.-->
+    <div class="row">
+
+        <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele bredden på mobil.
+        - col-sm-6: Fylder 6/12 (halvdelen) på små skærme ≥576px.
+        - col-md-4: Fylder 1/3 af rækken på skærme ≥768px.
+        - col-lg-3: Fylder 1/4 på store skærme ≥992px.
+        → Gør layoutet responsivt med 1, 2, 3 eller 4 kolonner afhængigt af skærmstørrelse.
+        - mb-4: Margin-bottom (1.5rem) → luft under hvert kort.
+        - text-center: Centrerer alt indhold horisontalt i kolonnen.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!-- <a>: Hele boksen er klikbar.
+            - href="pro_Side.html": Link til produktside.
+            - text-decoration-none: Fjerner understregning fra teksten.
+            - text-dark: Sikrer, at teksten ikke bliver blå som et almindeligt link.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Produktbillede.
+                - src: Billedets sti (med URL-encoded mellemrum: %20).
+                - alt: Alternativ tekst → bruges til skærmlæsere og SEO.
+                - img-fluid: Bootstrap-klassen gør billedet responsivt.
+                - mb-2: Margin-bottom (0.5rem / 8px) → luft under billedet.-->
+                <img src="img_produkt/1_moose%20bukser.png"
+                     alt="Härkila Moose Hunter 2.0 jagtbukser"
+                     class="img-fluid mb-2">
+
+                <!-- <h6>: Produktnavn – overskrift niveau 6.
+                - Ikke for stor, men stadig fremhævet.-->
+                <h6>Härkila – Moose Hunter 2.0 GORE-TEX Jagtbukser</h6>
+
+                <!-- <strong>: Gør prisen fed.
+                - class="fw-bold": Bootstrap utility for font-weight: bold.-->
+                <strong class="fw-bold">3269 kr</strong>
+
+                <br> <!-- Linjeskift før knappen -->
+
+                <!-- <button>: Bootstrap-knap.
+                - btn: Gør det til en knap.
+                - btn-outline-danger: Rød kant og rød tekst (ikke fyldt ud).
+                - Teksten "Køb HER" gør CTA’en tydelig.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: klikbart produktkort -->
+
+        </div> <!-- Lukker: kolonne med ét produktkort -->
+
+
+        <!--Produktkort nr. 2 – Jagtjakke
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele rækken på mobil.
+        - col-sm-6: Fylder halvdelen af rækken på skærme ≥576px.
+        - col-md-4: Fylder 1/3 på skærme ≥768px.
+        - col-lg-3: Fylder 1/4 på skærme ≥992px → giver plads til 4 produkter pr. række.
+        - mb-4: Margin-bottom (1.5rem / 24px) → giver luft mellem rækkerne.
+        - text-center: Centrerer alt indhold i boksen horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!--<a>: Hele kortet er klikbart og linker til produktsiden.
+            - text-decoration-none: Fjerner understregning fra link-tekst.
+            - text-dark: Gør teksten sort i stedet for blå (standard linkfarve).-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Produktbillede.
+                - src: Sti til billedfilen. %20 = mellemrum i filnavnet (URL-kodet).
+                - alt: Alternativ tekst – vigtigt for tilgængelighed og SEO.
+                - img-fluid: Gør billedet responsivt (max-width: 100%; height: auto).
+                - mb-2: Margin under billedet (0.5rem / 8px).-->
+                <img src="img_produkt/2_moose%20jakke.png"
+                     alt="Härkila Moose Hunter 2.0 jagtjakke"
+                     class="img-fluid mb-2">
+
+                <!--<h6>: Produktnavn – bruges til at vise titlen på varen.
+                - Overskrift niveau 6 → mindre end fx <h2> og <h3>, men stadig fremhævet.-->
+                <h6>Härkila – Moose Hunter 2.0 GORE-TEX Jagtjakke</h6>
+
+                <!--<strong>: Viser prisen tydeligt og fed.
+                - class="fw-bold": Bootstrap utility → font-weight: bold.-->
+                <strong class="fw-bold">3000kr</strong>
+
+                <br> <!-- Linjeskift mellem pris og knap -->
+
+                <!--<button>: Klikbar knap.
+                - btn: Bootstrap standard-knap.
+                - btn-outline-danger: Bootstrap rød kant og rød tekst (uden baggrund).
+                - Teksten "Køb HER" gør det til en tydelig Call to Action.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: klikbart link omkring hele produktkortet -->
+
+        </div> <!--Lukker: én kolonne med jagtjakke-produktkort -->
+
+
+        <!--Produktkort – Moose Hunter fleecehandsker
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele bredden på mobil (1 produkt pr. række).
+        - col-sm-6: Fylder 50 % på små skærme (2 produkter pr. række).
+        - col-md-4: Fylder 33 % på medium skærme (3 pr. række).
+        - col-lg-3: Fylder 25 % på store skærme (4 pr. række).
+        → Layoutet er responsivt og tilpasser sig skærmstørrelsen automatisk.
+        - mb-4: Margin-bottom (24px) giver luft mellem rækkerne.
+        - text-center: Centrerer al tekst og indhold horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!--Hele produktkortet er gjort klikbart via <a>.
+            - href="pro_Side.html": Link til detaljeret produktside.
+            - text-decoration-none: Fjerner understregning fra linktekst.
+            - text-dark: Gør linkets tekst mørk i stedet for blå (standard).-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!--<img>: Produktbillede.
+                - src: Stien til billedet (med %20 som kodet mellemrum).
+                - alt: Beskrivelse til skærmlæsere og hvis billedet ikke indlæses.
+                - class="img-fluid": Bootstrap-klasse der gør billedet responsivt.
+                - mb-2: Giver lidt luft under billedet før teksten.-->
+                <img src="img_produkt/3_Moose%20hansker.png"
+                     alt="Härkila Moose Hunter fleecehandsker"
+                     class="img-fluid mb-2">
+
+                <!--<h6>: Produktnavn som overskrift niveau 6.
+                - Giver en pæn og læsbar titel uden at dominere layoutet.-->
+                <h6>Härkila – Moose Hunter 2.0 Fleecehandsker</h6>
+
+                <!--<strong>: Fremhæver prisen.
+                - class="fw-bold": Gør teksten fed.-->
+                <strong class="fw-bold">419 kr.</strong>
+
+                <br> <!-- Linjeskift ned til knappen -->
+
+                <!--<button>: Bootstrap-knap.
+                - btn: Gør det til en Bootstrap-knap.
+                - btn-outline-danger: Rød kant + rød tekst (uden baggrund).
+                - Effektiv som en opfordring til handling (CTA): "Køb HER"-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: Klikbart link omkring hele produktboksen -->
+
+        </div> <!-- Lukker: kolonne med handskerne -->
+
+        <!--Produktkort – Vortex Viper HD 3000 Afstandsmåler
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele rækken (12/12) på mobil.
+        - col-sm-6: Halvdelen af rækken (6/12) på små skærme ≥576px.
+        - col-md-4: En tredjedel (4/12) på tablets ≥768px.
+        - col-lg-3: En fjerdedel (3/12) på desktops ≥992px.
+        → Gør layoutet fleksibelt og responsivt på alle skærmstørrelser.
+        - mb-4: Giver luft (1.5rem / 24px) under kortet til næste række.
+        - text-center: Centrerer tekst og knap i kortet.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!--<a>: Gør hele produktkortet klikbart.
+            - href="pro_Side.html": Sender brugeren til produktets underside.
+            - text-decoration-none: Fjerner link-understregning.
+            - text-dark: Gør linkets tekst mørk i stedet for blå.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!--<img>: Produktbillede.
+                - src: Sti til billede, med %20 som kodet mellemrum.
+                - alt: Beskrivelse til skærmlæsere og billedfejl.
+                - class="img-fluid": Gør billedet 100 % responsivt.
+                - mb-2: Giver margin under billedet.-->
+                <img src="img_produkt/5_vortex%20afstand.png"
+                     alt="Vortex Viper HD 3000 afstandsmåler"
+                     class="img-fluid mb-2">
+
+                <!--<h6>: Produktnavn som overskrift (niveau 6).
+                - Lille, men tydelig tekst – egnet til produkter i grid.-->
+                <h6>Vortex Optics – Viper HD 3000 Afstandsmåler</h6>
+
+                <!--<strong>: Viser prisen fremhævet.
+                - fw-bold: Bootstrap utility class for fed skrift.-->
+                <strong class="fw-bold">3819 kr.</strong>
+
+                <br> <!-- Linjeskift før knappen -->
+
+                <!--<button>: Klikbar Bootstrap-knap.
+                - btn: Gør det til en stillet Bootstrap-knap.
+                - btn-outline-danger: Giver rød kant og rød tekst (uden baggrund).
+                - Tydelig call-to-action ("Køb HER").-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: Hele produktkortet som link -->
+
+        </div> <!-- Lukker: Kolonne med afstandsmåler -->
+
+
+        <!--Produktkort – Vortex
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele rækken (12/12) på mobil.
+        - col-sm-6: Halvdelen af rækken (6/12) på små skærme ≥576px.
+        - col-md-4: En tredjedel (4/12) på tablets ≥768px.
+        - col-lg-3: En fjerdedel (3/12) på desktops ≥992px.
+        → Gør layoutet fleksibelt og responsivt på alle skærmstørrelser.
+        - mb-4: Giver luft (1.5rem / 24px) under kortet til næste række.
+        - text-center: Centrerer tekst og knap i kortet.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!--<a>: Gør hele produktkortet klikbart.
+            - href="pro_Side.html": Sender brugeren til produktets underside.
+            - text-decoration-none: Fjerner link-understregning.
+            - text-dark: Gør linkets tekst mørk i stedet for blå.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!--<img>: Produktbillede.
+                - src: Sti til billede, med %20 som kodet mellemrum.
+                - alt: Beskrivelse til skærmlæsere og billedfejl.
+                - class="img-fluid": Gør billedet 100 % responsivt.
+                - mb-2: Giver margin under billedet.-->
+                <img src="img_produkt/4_vortex.png"
+                     alt="Vortex Viper HD 3000 afstandsmåler"
+                     class="img-fluid mb-2">
+
+                <!--<h6>: Produktnavn som overskrift (niveau 6).
+                - Lille, men tydelig tekst – egnet til produkter i grid.-->
+                <h6>Vortex Optics </h6>
+
+                <!--<strong>: Viser prisen fremhævet.
+                - fw-bold: Bootstrap utility class for fed skrift.-->
+                <strong class="fw-bold">1520 kr.</strong>
+
+                <br> <!-- Linjeskift før knappen -->
+
+                <!--<button>: Klikbar Bootstrap-knap.
+                - btn: Gør det til en stillet Bootstrap-knap.
+                - btn-outline-danger: Giver rød kant og rød tekst (uden baggrund).
+                - Tydelig call-to-action ("Køb HER").-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: Hele produktkortet som link -->
+
+        </div> <!-- Lukker: Kolonne med afstandsmåler -->
+
+
+
+        <!-- Produktkort – Vortex Diamondback HD håndkikkert
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele bredden på mobil (én pr. række).
+        - col-sm-6: Halv bredde på små skærme ≥576px (to pr. række).
+        - col-md-4: En tredjedel på tablets ≥768px (tre pr. række).
+        - col-lg-3: En fjerdedel på desktops ≥992px (fire pr. række).
+        → Gør produktvisningen fleksibel og responsiv.
+        - mb-4: Giver margin-bottom på 1.5rem (24px).
+        - text-center: Centrerer alt indhold horisontalt inde i boksen.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!-- <a>: Gør hele boksen klikbar som et samlet link til produktsiden.
+            - text-decoration-none: Fjerner understregning fra linktekst.
+            - text-dark: Gør linktekst sort (i stedet for blå).-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Produktbillede – viser håndkikkerten.
+                - src: Sti til billedet (med %20 for mellemrum).
+                - alt: Beskrivende tekst for skærmlæsere og SEO.
+                - img-fluid: Bootstrap-klasse som gør billedet responsivt.
+                - mb-2: Giver luft under billedet (8px).-->
+                <img src="img_produkt/6_vortex%20kikkert.png"
+                     alt="Vortex Diamondback HD håndkikkert 12x50"
+                     class="img-fluid mb-2">
+
+                <!-- <h6>: Produktets navn som overskrift.
+                - Niveau 6 = lille overskrift, egnet til produktvisning i grid.-->
+                <h6>Vortex Optics – Diamondback HD Håndkikkert 12x50</h6>
+
+                <!-- <strong>: Viser prisen fremhævet.
+                - fw-bold: Bootstrap-klasse for fed skrift.-->
+                <strong class="fw-bold">2759 kr.</strong>
+
+                <br> <!-- Linjeskift under prisen -->
+
+                <!-- <button>: Klikbar købsknap.
+                - btn: Bootstrap-knap.
+                - btn-outline-danger: Rød kant og tekst uden baggrund.
+                - Skaber en tydelig call-to-action.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: hele produktkortet som klikbart link -->
+
+        </div> <!-- Lukker: kolonne med kikkert-produkt -->
+
+
+        <!--Produktkort – Vortex Optics Linserens og Anti-Dug
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele rækken (1/1) på mobil.
+        - col-sm-6: Fylder halvdelen (1/2) af rækken på små skærme ≥576px.
+        - col-md-4: Fylder en tredjedel (1/3) på tablets ≥768px.
+        - col-lg-3: Fylder en fjerdedel (1/4) på desktops ≥992px.
+        → Gør layoutet responsivt og fleksibelt på tværs af enheder.
+        - mb-4: Giver 1.5rem (24px) luft under produktkortet.
+        - text-center: Centrerer hele indholdet (billede, tekst, knap) horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!-- <a>: Hele boksen er klikbar – link til produktsiden.
+            - href="pro_Side.html": Før brugeren til detaljeret produktside.
+            - text-decoration-none: Fjerner standard-understregning på links.
+            - text-dark: Gør teksten sort i stedet for blå.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Produktbillede – Vortex linserens og anti-dug.
+                - src: Sti til billedet. '%20' = mellemrum i filnavn (URL-kodet).
+                - alt: Beskrivende tekst til skærmlæsere og hvis billedet ikke vises.
+                - img-fluid: Gør billedet responsivt → skaleres med containeren.
+                - mb-2: Margin-bottom (0.5rem / 8px) → luft mellem billede og tekst.-->
+                <img src="img_produkt/7_vortex%20rens.png"
+                     alt="Vortex linserens og anti-dug sæt"
+                     class="img-fluid mb-2">
+
+                <!--  <h6>: Overskrift med produktnavn.
+                - Lille overskrift (niveau 6), ideel til kompakte produktvisninger.-->
+                <h6>Vortex Optics – Linserens og Anti-Dug</h6>
+
+                <!-- <strong>: Viser prisen tydeligt.
+                - fw-bold: Bootstrap class → font-weight: bold.-->
+                <strong class="fw-bold">109 kr.</strong>
+
+                <br> <!-- Linjeskift ned til knappen -->
+
+                <!-- <button>: CTA-knap (Call to Action) til køb.
+                - btn: Bootstrap-knap.
+                - btn-outline-danger: Rød kant og rød tekst, men gennemsigtig baggrund.
+                - Giver visuel opmærksomhed uden at dominere.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: link omkring hele produktkortet -->
+
+        </div> <!-- Lukker: kolonne med linserens-produkt -->
+
+
+
+
+        <!-- Produktkort – Buttolo Bukke lokkekald
+       <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+       - col-12: Fylder hele bredden på mobil (1 produkt pr. række).
+       - col-sm-6: Fylder halvdelen på små skærme ≥576px (2 pr. række).
+       - col-md-4: Fylder en tredjedel på tablets ≥768px (3 pr. række).
+       - col-lg-3: Fylder en fjerdedel på desktops ≥992px (4 pr. række).
+       → Gør galleriet responsivt på alle skærmstørrelser.
+       - mb-4: Giver margin under produktkortet (1.5rem / 24px).
+       - text-center: Centrerer al tekst og elementer i boksen horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!--<a>: Gør hele produktkortet klikbart.
+            - href="pro_Side.html": Link til detaljeret produktside.
+            - text-decoration-none: Fjerner understregning på linktekst.
+            - text-dark: Sikrer mørk tekst i stedet for blå (standard).-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!--<img>: Viser produktbillede (lok kalde).
+                - src: Sti til billedet (bemærk URL-kodning: %20 = mellemrum).
+                - alt: Beskrivende tekst til skærmlæsere og SEO.
+                - class="img-fluid": Bootstrap-klasse, gør billedet responsivt.
+                - mb-2: Giver lidt luft (8px) under billedet.-->
+                <img src="img_produkt/8_buttolo%20bukke.png"
+                     alt="Buttolo lokkekald til råbuk"
+                     class="img-fluid mb-2">
+
+                <!-- <h6>: Produktnavn som overskrift (niveau 6).
+                - Lille og passende til produktoversigter.-->
+                <h6>Buttolo – Bukke Lokkekald</h6>
+
+                <!--<strong>: Fremhæver prisen.
+                - fw-bold: Bootstrap utility → font-weight: bold.-->
+                <strong class="fw-bold">259 kr.</strong>
+
+                <br> <!-- Linjeskift før købsknap -->
+
+                <!--  <button>: Køb-knap (CTA).
+                - btn: Gør det til en Bootstrap-knap.
+                - btn-outline-danger: Rød kant og tekst, ingen baggrund.
+                - Synlig uden at være tung – signalerer handling.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: Klikbart link omkring hele kortet -->
+
+        </div> <!--Lukker: kolonne med produktkort -->
+
+
+
+        <!--Produktkort – Hunters Gear Slagtesæt
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+       - col-12: Fylder hele bredden (12/12) på mobil (1 pr. række).
+       - col-sm-6: Fylder halvdelen (6/12) på små skærme ≥576px (2 pr. række).
+       - col-md-4: Fylder en tredjedel (4/12) på tablets ≥768px (3 pr. række).
+       - col-lg-3: Fylder en fjerdedel (3/12) på desktops ≥992px (4 pr. række).
+       → Gør kortet responsivt – tilpasser sig skærmstørrelsen.
+       - mb-4: Margin-bottom (24px) – giver luft under kortet.
+       - text-center: Centrerer alt indhold horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!--<a>: Gør hele boksen klikbar → navigerer til produktside.
+            - href="pro_Side.html": Link til detalje side.
+            - text-decoration-none: Fjerner understregning fra link.
+            - text-dark: Holder linktekst mørk, ikke blå.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!--<img>: Viser billedet af produktet.
+                - src: Sti til billedet (mellemrum = %20 i URL).
+                - alt: Alternativ tekst → vigtigt for tilgængelighed og SEO.
+                - class="img-fluid": Bootstrap utility → billedet bliver responsivt.
+                - mb-2: Margin-bottom = 8px → luft under billedet.-->
+                <img src="img_produkt/9_Hunters%20Gear.png"
+                     alt="Hunters Gear slagtesæt til vildt"
+                     class="img-fluid mb-2">
+
+                <!--<h6>: Produktets navn.
+                - Overskrift niveau 6 – passende til gittervisning.-->
+                <h6>Hunters Gear – Slagtesæt</h6>
+
+                <!--<strong>: Gør prisen fed.
+                - class="fw-bold": Bootstrap utility til fed tekst. -->
+                <strong class="fw-bold">279 kr.</strong>
+
+                <br> <!-- Linjeskift mellem pris og knap -->
+
+                <!--<button>: Tydelig købsknap.
+                - btn: Gør knappen til en Bootstrap-knap.
+                - btn-outline-danger: Rød tekst + rød kant (uden baggrund).
+                - Effektiv CTA (Call to Action): "Køb HER"-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker link omkring hele produktkortet -->
+
+        </div> <!-- Lukker: kolonne med slagtesæt -->
+
+
+        <!-- Produktkort – Hanwag Tatra II Wide GORE-TEX støvler
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele bredden på mobil (1 produkt pr. række).
+        - col-sm-6: Fylder 50 % på små skærme ≥576px (2 pr. række).
+        - col-md-4: Fylder 33 % på tablets ≥768px (3 pr. række).
+        - col-lg-3: Fylder 25 % på desktops ≥992px (4 pr. række).
+        → Gør layoutet responsivt og pænt på alle skærmstørrelser.
+        - mb-4: Margin-bottom på 1.5rem / 24px → giver luft under kortet.
+        - text-center: Centrerer al tekst og indhold i boksen horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!-- <a>: Hele kortet er klikbart og linker til produktsiden.
+            - href="pro_Side.html": Midlertidig link til produktside.
+            - text-decoration-none: Fjerner understregning på teksten.
+            - text-dark: Holder teksten mørk og læsbar (ikke blå).-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Produktets billede (vandrestøvler).
+                - src: Stien til billedfilen (med korrekt filnavn).
+                - alt: Alternativ tekst → beskrivelse til SEO og tilgængelighed.
+                - class="img-fluid": Gør billedet responsivt (skalerer automatisk).
+                - mb-2: Giver 8px luft under billedet.-->
+                <img src="img_produkt/10_hanag.png"
+                     alt="Hanwag Tatra II Wide GORE-TEX støvler"
+                     class="img-fluid mb-2">
+
+                <!-- <h6>: Produktnavn – kompakt overskrift.
+                - God balance mellem tydelighed og plads i gittervisning.-->
+                <h6>Hanwag – Tatra II Wide GORE-TEX Vandrestøvler</h6>
+
+                <!-- <strong>: Fremhæver prisen med fed tekst.
+                - fw-bold: Bootstrap utility for font-weight: bold.-->
+                <strong class="fw-bold">2179 kr.</strong>
+
+                <br> <!-- Linjeskift før knappen -->
+
+                <!-- <button>: Call to Action – købsknap.
+                - btn: Bootstrap-knap.
+                - btn-outline-danger: Rød kant og tekst, men gennemsigtig baggrund.
+                - Giver en tydelig, men ikke aggressiv, salgsopfordring.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!--Lukker: Klikbart link omkring hele kortet -->
+
+        </div> <!--Lukker: Kolonne med støvle-produktkort -->
+
+
+
+
+        <!--Produktkort – Härkila Moose Hunter 2.0 Støvler
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele rækken på mobil (12/12 kolonner = 1 produkt pr. række).
+        - col-sm-6: Halvdelen (6/12) på små skærme ≥576px (2 pr. række).
+        - col-md-4: En tredjedel (4/12) på tablets ≥768px (3 pr. række).
+        - col-lg-3: En fjerdedel (3/12) på desktops ≥992px (4 pr. række).
+        → Gør kortet fuldt responsivt.
+        - mb-4: Giver margin-bottom (24px) mellem rækkerne.
+        - text-center: Centrerer alt indhold (billede, tekst, knap) horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!-- <a>: Hele boksen fungerer som et stort link.
+            - href="pro_Side.html": Navigerer til produktets egen side.
+            - text-decoration-none: Fjerner understregning fra link.
+            - text-dark: Gør teksten mørk (sort) i stedet for blå.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Viser produktets billede.
+                - src: Sti til billede fil (mellemrum i filnavn = %20).
+                - alt: Alternativ tekst → for skærmlæsere og SEO.
+                - img-fluid: Gør billedet skalerbart og mobilvenligt.
+                - mb-2: Margin-bottom (8px) – luft mellem billede og overskrift.-->
+                <img src="img_produkt/11_Moose%20støvle.png"
+                     alt="Härkila Moose Hunter 2.0 jagtstøvler"
+                     class="img-fluid mb-2">
+
+                <!--  <h6>: Produktnavn som kompakt overskrift.
+                - h6 vælges for ikke at være dominerende i gittervisning.-->
+                <h6>Härkila – Moose Hunter 2.0 Støvler</h6>
+
+                <!--<strong>: Fremhæver prisen.
+                - fw-bold: Gør prisen fed med Bootstrap utility class.-->
+                <strong class="fw-bold">2541 kr.</strong>
+
+                <br> <!-- Linjeskift før knappen -->
+
+                <!-- <button>: Købsknap med tydelig call-to-action.
+                - btn: Gør knappen til en Bootstrap-knap.
+                - btn-outline-danger: Rød kant og tekst (ingen baggrund).
+                - Fremstår tydelig og opfordrer til handling uden at være påtrængende. -->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker hele det klikbare produktkort -->
+
+        </div> <!-- Lukker kolonnen med støvle-produkt -->
+
+        <!--  Produktkort – Härkila Reidmar MID GORE-TEX 2.0 støvler
+        div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">:
+        - col-12: Fylder hele rækken (1 produkt pr. række) på mobil.
+        - col-sm-6: Fylder halvdelen (2 produkter pr. række) på små skærme ≥576px.
+        - col-md-4: Fylder 1/3 (3 produkter pr. række) på tablets ≥768px.
+        - col-lg-3: Fylder 1/4 (4 produkter pr. række) på desktops ≥992px.
+        → Gør layoutet responsivt og fleksibelt.
+        - mb-4: Giver luft (1.5rem / 24px) under kortet.
+        - text-center: Centrerer alt indhold inde i kortet horisontalt.-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 text-center">
+
+            <!-- <a>: Gør hele produktkortet klikbart.
+            - href="pro_Side.html": Midlertidig link til produktside.
+            - text-decoration-none: Fjerner understregning fra linktekst.
+            - text-dark: Gør linktekst mørk i stedet for standard blå.-->
+            <a href="pro_Side.html" class="text-decoration-none text-dark">
+
+                <!-- <img>: Billede af produktet.
+                - src: Stien til billedfilen (mellemrum = %20).
+                - alt: Alternativ tekst → vigtigt for skærmlæsere og SEO.
+                - img-fluid: Bootstrap utility → billedet bliver responsivt.
+                - mb-2: Margin-bottom (8px) under billedet.-->
+                <img src="img_produkt/12_Moose%20gore%20tex%202.0.png"
+                     alt="Härkila Reidmar MID GORE-TEX 2.0 støvler"
+                     class="img-fluid mb-2">
+
+                <!-- <h6>: Produktnavn som overskrift niveau 6.
+                - Kompakt og passende til produktgrid.-->
+                <h6>Härkila – Reidmar MID GORE-TEX 2.0 Støvler</h6>
+
+                <!-- <strong>: Viser prisen med fed skrift.
+                - fw-bold: Bootstrap utility for bold tekst.-->
+                <strong class="fw-bold">1749 kr.</strong>
+
+                <br> <!-- Linjeskift mellem pris og knap -->
+
+                <!--  <button>: CTA-knap.
+                - btn: Bootstrap-knap.
+                - btn-outline-danger: Giver rød tekst og kant, men gennemsigtig baggrund.-->
+                <button class="btn btn-outline-danger">Køb HER</button>
+
+            </a> <!-- Lukker: Klikbart link omkring hele produktkortet -->
+
+        </div> <!-- Lukker: kolonne med produktkort -->
+
+        <!-- Lukker hele produktrækken og containeren -->
+    </div> <!-- /row -->
+</div> <!-- /container -->
+
+
+
+
+<!-- Majs hits sektionen starter -->
+
+<div class="container-fluid my-5">
+    <!-- "container-fluid" = fuld bredde container -->
+    <!-- "my-5" = margin-top og margin-bottom = 5 (luft over og under sektionen) -->
+
+    <div class="row justify-content-center">
+        <!-- "row" = Bootstrap grid række -->
+        <!-- "justify-content-center" = centrerer det indre indhold horisontalt -->
+
+        <div class="col-12 col-md-10">
+            <!-- "col-12" = 100% bredde på mobil -->
+            <!-- "col-md-10" = 10/12 bredde på mellemstore og større skærme -->
+
+            <h5 class="text-center mb-4">Majs Hits</h5>
+            <!-- "h5" = overskrift niveau 5 -->
+            <!-- "text-center" = centreret tekst -->
+            <!-- "mb-4" = margin-bottom = 4 → luft under overskriften -->
+
+            <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
+                <!-- "row" = ny række -->
+                <!-- "row-cols-2" = 2 kolonner på mobil -->
+                <!-- "row-cols-md-2" = 2 kolonner på mellemstore skærme -->
+                <!-- "row-cols-lg-4" = 4 kolonner på store skærme -->
+                <!-- "g-4" = gutter spacing mellem kolonner og rækker -->
+
+                <!-- Kort 1 -->
+                <div class="col text-center">
+                    <!-- "col": En Bootstrap-kolonne – bredden bestemmes af .row's "row-cols-*" -->
+                    <!-- "text-center": Centrerer ALT indhold i kolonnen (billede, overskrift og tekst) vandret -->
+
+                    <img src="img/majHits/sæt.jpg" class="img-fluid" alt="Camouflage jakke – ideel til jagt og outdoor">
+                    <!-- <img>: Indsætter et billede i HTML -->
+                    <!-- "Img-fluid": Bootstrap-klasse der gør billedet responsivt – dvs. det skalerer efter skærmstørrelsen -->
+                    <!-- "alt": Alternativ tekst til billedet – vigtigt for skærmlæsere og SEO -->
+
+                    <h5 class="mt-2">Camouflage Jakke</h5>
+                    <!-- <h5>: Overskrift niveau 5 – bruges her som produktets titel -->
+                    <!-- "mt-2": Bootstrap-klassen 'margin-top 2' – giver luft over overskriften -->
+
+                    <p>Perfekt til jagt og outdoor – slidstærk og åndbar i dansk design.</p>
+                    <!-- <p>: Paragraph-tag (afsnit). Bruges til almindelig brødtekst. -->
+                    <!-- Det er et blok-element og tilføjer automatisk luft før og efter teksten -->
+                    <!-- Her bruges det som produktbeskrivelse -->
+                </div>
+
+
+
+                <!-- Kort 2 -->
+                <div class="col text-center">
+                    <!-- Ny kolonne med centreret indhold -->
+
+                    <img src="img/majHits/radio.jpg" class="img-fluid" alt="Taktisk radio med håndsving, lys og powerbank">
+                    <!-- Produktbillede med alt-tekst – optimeret for mobil -->
+
+                    <h5 class="mt-3">Taktisk Radio</h5>
+                    <!-- Overskrift med lidt større margin-top (3) for bedre afstand -->
+
+                    <p>Oplades med håndsving – har både lys, radio og powerbank.</p>
+                    <!-- <p>: Bruges som beskrivende afsnit -->
+                    <!-- Gør teksten læsbar og adskiller indholdet korrekt semantisk -->
+                </div>
+
+
+                <!-- Kort 3 -->
+                <div class="col text-center">
+                    <!-- Kolonne nr. 3 – samme layoutstruktur -->
+
+                    <img src="img/majHits/mad.jpg" class="img-fluid" alt="Tactical Foodpack – Bolognese til outdoor brug">
+                    <!-- Responsivt billede af produktet med informativ alt-tekst -->
+
+                    <h5 class="mt-3">Tactical Foodpack</h5>
+                    <!-- Overskrift for produktnavn – margin-top 3 giver visuel luft -->
+
+                    <p>Bolognese med lang holdbarhed – bare tilsæt varmt vand.</p>
+                    <!-- <p>: Paragraph (afsnit) med produktbeskrivelse -->
+                    <!-- Bruges til kort tekst der uddyber funktion eller fordele -->
+                </div>
+
+
+                <!-- Kort 4 -->
+                <div class="col text-center">
+                    <!-- Sidste kolonne i rækken – ens opsætning for konsistens -->
+
+                    <img src="img/majHits/vand.jpg" class="img-fluid" alt="Vandrensningspakke – rens op til 50 liter">
+                    <!-- Billedet er responsivt og beskrives i alt-teksten for SEO og tilgængelighed -->
+
+                    <h5 class="mt-3">Vandrensning</h5>
+                    <!-- Produktets navn vises som overskrift -->
+
+                    <p>Rens op til 50 liter vand med én lille pakke – ideel til survival.</p>
+                    <!-- <p>: Standard HTML-element til brødtekst -->
+                    <!-- Automatisk afstand før og efter og god semantisk betydning -->
+
+                </div>
+                <!-- Lukker kolonnen (col text-center) for det sidste kort – indeholder billede, overskrift og <p> -->
+            </div>
+            <!-- Lukker .row med alle produktkort (4 kolonner) -->
+            <!-- f.eks. class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4" -->
+        </div>
+        <!-- Lukker col-12 col-md-10 – den indre container med padding omkring produktrækkerne -->
+    </div>
+    <!-- Lukker row justify-content-center – styrer centrering og struktur i hele sektionen -->
+</div>
+<!-- Lukker container-fluid my-5 – hele Majs Hits-sektionen, inkl. alt indhold -->
+
+
+<!-- Blog sektionen starter -->
+<div class="container-fluid my-5">
+    <!-- "container-fluid" = Bootstrap container der fylder hele skærmens bredde -->
+    <!-- "my-5" = margin-top + margin-bottom = 5 → luft over og under sektionen (y-aksen) -->
+
+    <div class="row justify-content-center">
+        <!-- "row" = starter en ny række i Bootstrap grid -->
+        <!-- "justify-content-center" = centrerer indholdet vandret i rækken (x-aksen) -->
+
+        <div class="col-12 col-md-10">
+            <!-- "col-12" = 100% bredde på mobil -->
+            <!-- "col-md-10" = 10/12 bredde på skærme ≥ 768px → giver luft i siderne -->
+
+            <h5 class="text-center mb-4">Bloggen</h5>
+            <!-- "text-center" = centreret tekst -->
+            <!-- "mb-4" = margin-bottom = 4 → luft under overskriften -->
+
+            <div class="row row-cols-4 row-cols-md-4 row-cols-lg-4 g-4">
+                <!-- "row" = ny række til blogkortene -->
+                <!-- "row-cols-4" = forsøger at vise 4 kolonner som default (virker i Bootstrap 5) -->
+                <!-- "row-cols-md-4" = 4 kolonner på medium skærme og op -->
+                <!-- "g-4" = gutter spacing = 4 → mellemrum mellem kolonner (x- og y-aksen) -->
+
+                <!-- Kort 1 -->
+                <div class="col text-center">
+                    <!-- "col" = Bootstrap-kolonne, bredde styres af "row-cols-*" i overordnet .row -->
+                    <!-- "text-center" = centrerer ALT indhold inde i denne kolonne (billede, overskrift, tekst) -->
+
+                    <img src="img/blog/fasan.jpg" class="img-fluid" alt="Blogbillede: Ud på tur aldrig sur – fasan på vingerne">
+                    <!-- <img> = indsætter billede -->
+                    <!-- "img-fluid" = Bootstrap-klasse der gør billedet responsivt (max-width: 100%; height: auto) -->
+                    <!-- "alt" = alternativ tekst der vises hvis billedet ikke indlæses + bruges af skærmlæsere og søgemaskiner -->
+
+                    <h5 class="mt-3">Ud på tur aldrig sur</h5>
+                    <!-- <h5> = overskrift (5. niveau, mindre end h1-h4) -->
+                    <!-- "mt-3" = margin-top: 3 → giver luft mellem billedet og overskriften (y-aksen) -->
+
+                    <p>Hvor går din næste tur hen ?</p>
+                    <!-- <p>: Paragraph (afsnit-->
+                    <!-- Bruges her som undertekst til kortet -->
+                </div>
+
+
+                <!-- Kort 2 = SAMME FORKLARING SOM PÅ KORT 1 -->
+                <div class="col text-center">
+                    <!-- "col" = kolonne -->
+                    <!-- "text-center" = centrerer indhold -->
+
+                    <img src="img/blog/mad.jpg" class="img-fluid" alt="Blogbillede: Vild mad med ramsløg">
+                    <!-- Responsivt billede med korrekt alternativ tekst -->
+
+                    <h5 class="mt-3">Vildt på gaflen</h5>
+                    <!-- Overskrift med luft over -->
+
+                    <p>Let god og sund opskrift på vild deller med ramsløg</p>
+                    <!-- Brødtekst med kort beskrivelse -->
+                    <!-- <p>: Paragraph (afsnit) -->
+                </div>
+
+
+
+                <!-- Kort 3 = SAMME FORKLARING SOM PÅ KORT 1 -->
+                <div class="col text-center">
+                    <!-- Kolonne og centreret indhold -->
+
+                    <img src="img/blog/outdoor.jpg" class="img-fluid" alt="Blogbillede: Outdoor setup med bål og grej">
+                    <!-- Billede der automatisk tilpasser sig bredde og bevarer højdeproportioner -->
+
+                    <h5 class="mt-3">Outdoor tricks</h5>
+                    <!-- Overskrift med lidt luft over -->
+
+                    <p>5 hurtige måder at få varmen på ude i naturen</p>
+                    <!-- P-tag bruges til beskrivende tekst under overskriften -->
+                    <!-- <p>: Paragraph (afsnit)-->
+                </div>
+
+
+                <!-- Kort 4 = SAMME FORKLARING SOM PÅ KORT 1  -->
+                <div class="col text-center">
+                    <!-- Kolonne med centreret indhold -->
+
+                    <img src="img/blog/patron.jpg" class="img-fluid" alt="Blogbillede: Patroner og udstyr til jagt og outdoor">
+                    <!-- Responsivt billede + god alt-tekst for tilgængelighed og SEO -->
+
+                    <h5 class="mt-3">Det rette valg?</h5>
+                    <!-- Overskrift med top-margin -->
+
+                    <p>Find den rette produkt til den næste oplevelse</p>
+                    <!-- Undertekst med almindelig paragraftekst -->
+                    <!-- <p>: Paragraph (afsnit)-->
+                </div>
+
+            </div> <!-- Lukker .row med blogkort -->
+        </div> <!-- Lukker col-12 col-md-10 -->
+    </div> <!-- Lukker row justify-content-center -->
+</div> <!-- Lukker container-fluid my-5 -->
+
+
+
+
+<!-- ========== Footer med kontakt, showroom og betalingsoplysninger ==========
+
+Denne footer er opbygget med Bootstrap’s grid-system.
+Klasser:
+- container-fluid: Gør footeren i fuld bredde (hele skærmens bredde)
+- pt-5: Padding-top – giver luft over (3rem / 48px)
+- bg-dark: Bootstrap-baggrundsfarve – mørk baggrund (ofte #212529)
+- text-white: Gør al tekst hvid, hvilket giver høj kontrast på mørk baggrund
+-->
+<footer class="container-fluid pt-5 bg-dark text-white">
+
+    <!-- Indre container – begrænser bredden på indholdet -->
+    <div class="container">
+
+        <!-- Række med tre kolonner.
+        Klasser:
+        - row: Bootstrap række, bruges til at placere kolonner i.
+        - text-center: Centrerer tekst på mobil og små skærme.
+        - text-xl-start: Justerer tekst til venstre på store skærme (xl og op).
+        -->
+        <div class="row text-center text-xl-start">
+
+            <!--  Kolonne 1: Kundeservice
+            Klasser:
+            - col-12: Fylder hele bredden på små skærme (mobil)
+            - col-xl-4: Fylder 1/3 af rækken på store skærme
+            - mb-4: Margin-bottom (afstand under boksen) – 1.5rem / 24px-->
+            <div class="col-12 col-xl-4 mb-4">
+
+                <!--h5: Sektionstitel – bruges i footers til at adskille indhold-->
+                <h5>KUNDESERVICE</h5>
+
+                <!-- Kontaktinformation:
+                - <b>: Fed tekst for at fremhæve feltet (stylet med SCSS i dit projekt)
+                - <p>: Hver kontaktlinje adskilles for bedre læsbarhed-->
+                <p><b>Email</b>: INFO@GrejFreak.dk</p>
+                <p><b>Telefon</b>: 78 72 34 34</p>
+            </div>
+
+
+            <!-- Kolonne 2: Showroom og åbningstider
+            Denne kolonne viser showroomets adresse og åbningstider i en responsiv kolonne.
+            Bootstrap layoutklasser:
+            - col-12: Fylder hele bredden på små skærme
+            - col-xl-4: Fylder 1/3 af rækken på store skærme
+            - mb-4: Margin-bottom – giver luft under kolonnen (1.5rem = 24px) -->
+            <div class="col-12 col-xl-4 mb-4">
+
+                <!-- Overskrift for showroom sektionen -->
+                <h5>SHOWROOM</h5>
+
+                <p>
+                    I vores showroom kan du prøve dit grej før du køber det.<br>
+
+                    <!--  Adresse-link:
+                    - text-white: Bootstrap utility – gør teksten hvid, så den står klart på mørk baggrund.
+                    - text-decoration-underline: Bootstrap utility – tilføjer understregning for at vise, det er et link.-->
+                    <a href="https://maps.app.goo.gl/ZXvLLEqBA9bFAQyz6" class="text-white text-decoration-underline">
+                        Gunnar Clausens Vej 58, 8260 Viby J.
+                    </a>
+                </p>
+
+                <!-- Underrubrik for åbningstider.
+                - mt-3: Bootstrap spacing utility – margin-top på 1rem (16px), så der er luft over.-->
+                <h6 class="mt-3">Åbningstider i showroom</h6>
+
+                <!--Liste over åbningstider:
+                - list-unstyled: Bootstrap utility class som fjerner bullets og venstre padding fra listen.
+
+                HVOR KOMMER DEN FRA?
+                Kommer fra Bootstrap-filen: _lists.scss
+
+                HVAD GØR DEN?
+                - Fjerner standard HTML-bullets (de små prikker foran hvert punkt).
+                - Fjerner indrykning (padding-left).
+
+                HVAD ER BULLETS?
+                - Bullet points = de runde prikker der vises ved <li> i en <ul>.
+                - De bruges normalt til punktopstillinger, men fjernes her for at listen ligner almindelig tekst/menupunkter.
+
+                HVORFOR BRUGER VI DET?
+                - Det ser mere stilrent ud, især i footers, menuer og kontaktoplysninger.-->
+                <ul class="list-unstyled">
+                    <li><b>Mandag</b>: 10.00 - 16.30</li>
+                    <li><b>Tirsdag</b>: 10.00 - 16.30</li>
+                    <li><b>Onsdag</b>: 10.00 - 16.30</li>
+                    <li><b>Torsdag</b>: 10.00 - 17.30</li>
+                    <li><b>Fredag</b>: 10.00 - 16.30</li>
+                    <li><b>Lørdag</b>: 10.00 - 14.00</li>
+                    <li><b>Søndag</b>: Lukket</li>
+                </ul>
+            </div>
+
+
+
+            <!--Kolonne 3: Information Denne kolonne viser links til hjælpesider og virksomhedsoplysninger.
+            Bootstrap layout:
+            - col-12: Fuldbredde på små skærme
+            - col-xl-4: 1/3 bredde på store skærme
+            - mb-4: Giver margin under kolonnen på mobil
+            -->
+            <div class="col-12 col-xl-4 mb-4">
+
+                <!-- Sektionstitel -->
+                <h5>INFORMATION</h5>
+
+                <!-- Liste med links – vises uden bullets.
+
+                list-unstyled: Bootstrap utility class.
+
+                HVOR KOMMER DET FRA?
+                - Bootstrap SCSS utility: _lists.scss
+
+                HVAD GØR DET?
+                - Fjerner bullet points (prikker foran listen).
+                - Fjerner padding-left (indrykning), så listen flugter til venstre.
+
+                HVORFOR BRUGES DET?
+                - For at få listen til at se ud som en ren, moderne menuliste – typisk brugt i footers og navigation.-->
+                <ul class="list-unstyled">
+
+                    <!--
+                    Hvert link bruger:
+                    - text-white: Bootstrap utility – gør tekst hvid.
+                    - text-decoration-none: Bootstrap utility – fjerner understregning.
+
+                    Resultat:
+                    pæne links uden underlinje, der er tydelige på mørk baggrund.-->
+                    <li><a href="index.html" class="text-white text-decoration-none">Retur og Reklamation</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">GrejPedia</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Ofte Stillede Spørgsmål</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Showroom</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Fordele</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Kundeklub</a></li>
+                    <li><a href="index.html" class="text-white text-decoration-none">Om os</a></li>
+                </ul>
+            </div>
+
+            <!-- ========== Anden række: Betaling og copyright ========== -->
+            <!-- justify-content-center: Centrerer kolonnen horisontalt -->
+            <div class="row justify-content-center">
+                <!-- col-12: Fuld bredde på mobil -->
+                <!-- col-md-6: Halvdelen af rækken fra md og op -->
+                <!-- text-center: Centrerer både billeder og tekst -->
+                <!-- payment-logos: Egen stylingklasse til logoer -->
+
+                <!-- img: Billeder af betalingsikoner -->
+                <!-- alt: Alternativ tekst til skærmlæsere og SEO -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center payment-logos mb-2">
+                    <!-- col-12: Fuld bredde på mobil -->
+                    <!-- col-md-6: Halvdelen af rækken fra md og op -->
+                    <!-- text-center: Centrerer både billeder og tekst -->
+                    <!-- payment-logos: Egen stylingklasse til logoer -->
+
+                    <!-- img: Billeder af betalingsikoner -->
+                    <!-- alt: Alternativ tekst til skærmlæsere og SEO -->
+                    <img src="img/masterCard.png" alt="Betalingskort: Mastercard logo">
+                    <img src="img/dankort.png" alt="Betalingskort: Dankort logo">
+                    <img src="img/gls.png" alt="Fragtfirma: GLS leveringslogo">
+
+                    <!-- p: Afsnit med copyright og CVR -->
+                    <!-- mb-0: Ingen margin-bottom -->
+                    <!-- mt-2: Margin-top på 0.5rem (8px) -->
+                    <p class="mb-0 mt-2">
+                        © 2025 GrejFreak.dk<br>
+                        CVR 31585538
+                    </p> <!--Lukker: <p class="mb-0 mt-2"> – afsnit med ophavsret og CVR-nummer -->
+
+                </div> <!--Lukker: <div class="col-12 col-sm-12 col-md-6 col-lg-6 ..."> – kolonne med betalingsikoner og bundtekst -->
+
+            </div> <!-- Lukker: <div class="row"> – rækken der indeholder footer 2 kolonner -->
+
+        </div> <!--Lukker: <div class="row"> – rækken der indeholder footer 2 kolonner -->
+
+    </div> <!--Lukker: <div class="container"> – indre container der begrænser bredden på footer indhold -->
+
+</footer>  <!-- Lukker: <footer class="container-fluid pt-5 bg-dark text-white"> – hele footeren -->
+
+</body> <!-- Lukker <body> – hele det synlige indhold på siden -->
+
+</html> <!-- Lukker <html> – hele HTML-dokumentet -->

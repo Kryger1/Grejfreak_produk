@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- Angiver at dette dokument er skrevet i HTML5 -->
+
+<html lang="da">
+<!-- Starter HTML-dokumentet og sætter sprog til dansk -->
+
+<!-- =================== HEAD: Metadata og opsætning =================== -->
+<!-- <head>: Indeholder information om dokumentet, som ikke vises direkte i browseren -->
+<!-- Bruges til at linke stilark, scripts, definere titel, SEO-data m.m. -->
+<head>
+
+    <!-- Angiver tegnsættet som UTF-8 -->
+    <!-- Gør det muligt at vise danske bogstaver og specialtegn korrekt -->
+    <meta charset="utf-8">
+
+    <!-- Titel på hjemmesiden – vises i browserens faneblad og i søgeresultater -->
+    <title>GrejFreak</title>
+
+    <!-- Søgemaskine-indeks: Tillader alle robotter at indeksere siden -->
+    <meta name="robots" content="All">
+
+    <!-- Forfatter-angivelse (SEO eller info) -->
+    <meta name="author" content="Udgiver">
+
+    <!-- Ophavsretlig information (brugbar for søgemaskiner og værktøjer) -->
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- ========== STIL & DESIGN ========== -->
+
+    <!-- Link til ekstern CSS-stylesheet -->
+    <!-- Indeholder hele sidens layout og designregler -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Gør layoutet responsivt på alle enheder -->
+    <!-- width=device-width = brugerens skærmbredde -->
+    <!-- initial-scale=1 = ingen zoom ved load -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Bootstrap JavaScript-bibliotek indlæst via CDN -->
+    <!-- Bruges til funktioner som dropdown, collapse, modals m.m. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.scss">
+
+</head>
+
+<!-- <body> er roden til hele det synlige indhold på en hjemmeside.--->
+<body>
+
+
+<!--Dette <div>-element bruges som en container, der spænder over hele bredden af skærmen og hele højden af visningsporten.Det indeholder flere Bootstrap-klasser, som styrer layout, højde og centrering af indholdet. Her er en gennemgang af hver klasse:
+
+1. class="container-fluid":
+   - 'container-fluid' er en Bootstrap-klasse, som skaber en container, der altid strækker sig over 100 % af bredden af skærmen.
+   - Den adskiller sig fra 'container', som har faste breakpoints og margin.
+   - Bruges ofte til fuld bredde layouts, f.eks. baggrunde eller centreret indhold på tværs af hele skærmen.
+
+2. vh-100:
+   - 'vh' står for "viewport height", og 'vh-100' betyder, at elementets højde skal være 100 % af browserens synlige højde.
+   - Det gør, at div'en fylder hele højden af visningsporten – altså hele skærmen.
+
+3. d-flex:
+   - 'd-flex' står for "display: flex;" og gør elementet til en flex container.
+   - Flexbox bruges til at styre layout og justering af indhold på en fleksibel måde.
+
+4. align-items-center:
+   - Denne flexbox-klasse centrerer ALT indhold lodret i containeren.
+   - Det svarer til 'align-items: center;' i CSS.
+   - Bruges for at placere indholdet i midten af containerens højde.
+
+5. justify-content-center:
+   - Denne flexbox-klasse centrerer ALT indhold vandret i containeren.
+   - Det svarer til 'justify-content: center;' i CSS.
+   - Gør at det indre indhold står præcis midt på skærmen både lodret og vandret.
+
+Sammenlagt betyder denne linje, at vi opretter en fuldbredde og fuldhøjde container, hvor alt indhold bliver **perfekt centreret midt på skærmen** – både horisontalt og vertikalt – ved hjælp af Flexbox-layoutsystemet fra Bootstrap.-->
+
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+
+    <!--Dette <div>-element fungerer som en række (row) i Bootstrap's grid-system og bruges til at placere kolonner på en kontrolleret måde.Her er, hvad hver klasse gør:
+
+    1. class="row":
+       - 'row' er en Bootstrap-klasse, der definerer en vandret række i det responsive grid-system.
+       - Det bruges til at indeholde én eller flere kolonner (f.eks. 'col-12', 'col-md-6', osv.).
+       - 'row' har automatisk negativ margin i siderne for at balancere med kolonnernes padding (gutter spacing).
+
+    2. justify-content-center:
+       - Dette er en Flexbox-klasse i Bootstrap, som bruges til at centrere indholdet **vandret** i rækken.
+       - Det svarer til CSS-egenskaben 'justify-content: center;' anvendt på en flex container.
+       - Det betyder, at kolonnerne eller det indre indhold i rækken bliver centreret i forhold til den tilgængelige bredde.
+
+    3. w-100:
+       - 'w-100' betyder "width: 100%;" og gør, at <div>-elementet fylder hele den tilgængelige bredde.
+       - Selvom 'row' typisk allerede fylder 100 %, bruges denne klasse som en ekstra sikkerhed for, at elementet ikke er begrænset af f.eks. forældrekomponenters bredde.
+       - Det kan også sikre, at Flexbox-centeringen fungerer korrekt på tværs af alle enheder.
+
+    Sammenfattende:
+    Dette <div>-element definerer en Bootstrap-række, der fylder hele bredden og centrerer det indhold (f.eks. kolonner), som du lægger ind i den.
+    Det bruges typisk til at strukturere og centrere et element på tværs af skærmens bredde i et responsivt layout.-->
+
+    <div class="row justify-content-center w-100">
+
+        <!--Denne <div> er en kolonne i Bootstrap's responsive grid-system. Den bruger tre forskellige breakpoint-klasser for at definere, hvordan kolonnen skal opføre sig på forskellige skærmstørrelser.Her er, hvad hver klasse betyder:
+
+        1. col-sm-12:
+           - 'col-sm-12' betyder, at på **små skærme** (min. 576px bredde og op), skal kolonnen optage hele rækkens bredde – altså 12 ud af 12 kolonne-enheder.
+           - Dette sikrer, at kolonnen strækker sig over 100 % af rækken på mobiltelefoner og små tablets.
+
+        2. col-md-12:
+           - 'col-md-12' betyder, at på **mellemstore skærme** (min. 768px bredde og op), skal kolonnen også fylde hele rækken.
+           - F.eks. tablets i liggende tilstand og små laptops.
+
+        3. col-lg-12:
+           - 'col-lg-12' betyder, at på **store skærme** (min. 992px bredde og op), skal kolonnen stadig fylde hele rækken.
+           - Dette inkluderer store laptops og desktopskærme.
+
+        Fælles for alle tre:
+        - Grid-systemet i Bootstrap er opdelt i 12 enheder pr. række.
+        - En kolonne med 'col-*-12' fylder altså **hele bredden**, uanset hvilken breakpoint man ser på.
+
+        Sammenlagt betyder dette:
+        Denne kolonne vil ALTID fylde hele bredden af rækken, uanset skærmstørrelse. Det kan være nyttigt, hvis du ønsker at sikre, at indholdet ikke deles op eller rykkes, og skal vises i én bred blok.-->
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+
+            <!--Dette er en hyperlink-tag (<a>), som bruges til at linke til en anden side – i dette tilfælde 'index.html'.Derudover bruges to Bootstrap-klasser til at styre udseendet af linket. Her er en forklaring på hver del:
+
+            1. <a>:
+               - HTML's "anchor"-tag, som bruges til at oprette links.
+               - Det skal altid have en 'href'-attribut, der angiver destinationen for linket.
+
+            2. href="index.html":
+               - 'href' står for "hyper reference", og værdien "index.html" betyder, at når man klikker på dette link, vil browseren navigere til filen "index.html".
+               - Dette er typisk startsiden (forsiden) i en webstruktur.
+
+            3. class="text-decoration-none":
+               - En Bootstrap-klasse, som fjerner standard-understregningen fra linket.
+               - Det svarer til CSS-egenskaben: `text-decoration: none;`
+               - Bruges for at få linket til at ligne almindelig tekst – ofte anvendt når linket skal styles manuelt med f.eks. hover-effekter.
+
+            4. text-dark:
+               - En Bootstrap-klasse, der farver teksten mørk (typisk sort eller meget mørk grå).
+               - Det svarer til CSS-egenskaben: `color: #212529;` som er en mørk tekstfarve i Bootstrap's farvepalet.
+
+            Samlet:
+            Dette <a>-tag er et **stilrent og minimalistisk link** uden understregning og med mørk tekstfarve, der fører brugeren til "index.html", som typisk er forsiden af hjemmesiden.-->
+
+            <a href="index.html" class="text-decoration-none text-dark">
+
+                <!--Dette er et HTML-billedelement (<img>), der bruges til at vise et billede på hjemmesiden.Her er en forklaring af hver del:
+
+                1. <img>:
+                   - Dette tag bruges til at indsætte billeder i HTML.
+                   - Det er et "self-closing" element, hvilket betyder, at det ikke har en slut-tag (</img> findes ikke).
+
+                2. src="img/hero_stor/mili_stor.jpg":
+                   - 'src' står for "source" og angiver stien til billedfilen, der skal vises.
+                   - I dette tilfælde ligger billedet i mappen: `img/hero_stor/` og hedder `mili_stor.jpg`.
+                   - Det betyder, at filstrukturen forventer, at der i projektmappen findes en undermappe 'img' med en undermappe 'hero_stor' og derinde billedet 'mili_stor.jpg'.
+
+                3. class="img-fluid":
+                   - 'img-fluid' er en Bootstrap-klasse, der gør billedet responsivt.
+                   - Det betyder, at billedet automatisk tilpasser sig den tilgængelige bredde på skærmen eller det element, det ligger i.
+                   - Klassen svarer til følgende CSS: `max-width: 100%; height: auto;`
+                   - Det sikrer, at billedet aldrig bliver bredere end dets container og bevarer sin proportioner.
+
+                4. alt="militær":
+                   - 'alt' står for "alternative text".
+                   - Det er en tekstbeskrivelse af billedet, som vises hvis billedet ikke kan indlæses.
+                   - Det er også vigtigt for **tilgængelighed** (skærmlæsere til blinde/handicappede) og **SEO** (søgemaskineoptimering).
+                   - I dette tilfælde beskriver det kort, at billedet relaterer sig til militær.
+
+                Samlet:
+                Denne `<img>`-tag indsætter et billede af noget militær-relateret (mili_stor.jpg), som automatisk skaleres korrekt på alle skærmstørrelser, og som har en kort beskrivende tekst tilgængelig, hvis billedet ikke vises. -->
+
+                <img src="img/hero_stor/mili_stor.jpg" class="img-fluid" alt="militær">
+
+                <!-- Dette <div>-element udgør en del af en Bootstrap-komponent kaldet "Card", som bruges til at præsentere indhold i et struktureret layout med kant, padding og typografi.
+
+                1. class="card-body":
+                   - 'card-body' er en Bootstrap-klasse, som markerer selve indholdsområdet inde i et "kort" (card).
+                   - Det er her tekst, billeder, knapper m.m. bliver placeret i en card-komponent.
+                   - Klassen tilføjer automatisk passende **padding (indvendig afstand)** og stil, så indholdet vises pænt og letlæseligt.
+
+                2. text-center:
+                   - Dette er en Bootstrap-tekstklasse, som centrerer alt tekstmæssigt indhold horisontalt.
+                   - Det svarer til CSS-egenskaben: `text-align: center;`
+                   - Alt indhold inde i denne `<div>` – f.eks. overskrifter, brødtekst, knapper eller billeder – vil blive **centreret på linjen**, medmindre andet specifikt overrides.
+
+                Samlet:
+                Denne `<div>` fungerer som den visuelle og funktionelle krop af et Bootstrap-kort, hvor indholdet bliver centreret i midten.
+                Det er det område, man typisk bruger til at vise en tekstbeskrivelse, pris, knapper, ikoner eller andet visuelt indhold i et ensartet layout. -->
+
+                <div class="card-body text-center">
+
+                        <!-- Dette er en overskrift på niveau 5 (<h5>) med en Bootstrap-klasse, der anvendes inde i en kort-komponent (card).
+
+                        1. <h5>:
+                           - HTML-elementet <h5> betyder "heading 5" og bruges til overskrifter.
+                           - Det er det næstlaveste overskriftsniveau (efter <h6>).
+                           - Semantisk fortæller det, at dette er en underoverskrift, der bør være underordnet vigtigere overskrifter som <h1> til <h4>.
+
+                        2. class="card-title":
+                           - 'card-title' er en Bootstrap-klasse, som bruges specifikt til at style titler i et kort (card).
+                           - Det giver typisk passende margin og typografi, så titlen ser ensartet og pæn ud i et Bootstrap-kort-layout.
+                           - Det kan også aktivere Bootstrap’s typografiske forudindstillinger for korttitler, som f.eks. fontstørrelse, font-weight og spacing.
+
+                        3. Indhold: "404 Page MISSING"
+                           - Dette er den tekst, der bliver vist for brugeren.
+                           - "404" refererer til HTTP-statuskoden for en side, der ikke findes – typisk vist når brugeren lander på en forkert eller slettet side.
+                           - Teksten kan tilpasses og er her brugt som **en visuel og informativ fejlbesked**.
+
+                        Samlet funktion:
+                        Denne linje placerer en tydelig overskrift/titel i et Bootstrap-card-element, som fortæller brugeren, at den ønskede side ikke blev fundet (404-fejl). Klassen sørger for at teksten følger Bootstrap’s visuelle standarder for korttitler.-->
+
+                        <h5 class="card-title">404 Page MISSING</h5>
+
+                        <!--Dette er et <p>-element, som står for "paragraph" (afsnit).
+                        Det bruges til at vise almindelig brødtekst i HTML – altså ikke-overskrift tekst.
+
+                        1. <p>:
+                           - HTML's standardelement til at vise tekstafsnit.
+                           - Browseren tilføjer som standard lidt luft (margin) før og efter hvert afsnit, så teksten ikke står klumpet sammen.
+                           - Teksten i <p>-elementet er typisk venstrestillet, med mindre det styles anderledes via CSS eller Bootstrap-klasser.
+
+                        2. Indhold:
+                           - Den viste tekst: "Kort tekst der forklarer boksen. Ikke for meget – bare det vigtigste."
+                           - Teksten er kort, informativ og fokuseret på at give brugeren en hurtig forståelse af, hvad boksen handler om.
+                           - Det er typisk sådan man skriver UI-tekst til infobokse, cards eller overlays, hvor man ikke vil overbelaste brugeren med for meget information.
+
+                        Formål:
+                        Denne <p>-tag bruges her til at vise **en forklarende tekst** under en overskrift (f.eks. <h5>) inde i et card eller infoboks.
+                        Den er skrevet i en **kortfattet og UX-venlig stil**, der hurtigt kommunikerer essensen uden at virke tung eller overforklarende.-->
+
+                        <p>Kort tekst der forklarer boksen. Ikke for meget – bare det vigtigste.</p>
+
+                        <!--
+                        Dette <button>-element bruges til at vise en klikbar knap, og den benytter både Bootstrap- og en custom-klasse.
+                        Her er, hvad hver del betyder:
+
+                        1. <button>:
+                           - HTML's semantiske element til knapper, som kan bruges til at sende formularer, udføre JavaScript-funktioner eller navigere brugeren.
+                           - Knapper er interaktive og understøtter både klik med mus og tastaturkontrol (godt for tilgængelighed).
+
+                        2. class="btn":
+                           - 'btn' er Bootstrap’s grundlæggende knapklasse.
+                           - Den tilføjer standard-styling såsom padding, kant, baggrundsfarve, hover-effekt og cursor-styling.
+
+                        3. btn-grejfreak:
+                           - Dette er en **brugerdefineret klasse**, sandsynligvis defineret i din SCSS-fil.
+                           - Den bruges til at style knappen efter Grejfreaks designprofil – f.eks. farver, skrifttype eller animationer.
+                           - Klassen kan f.eks. være defineret som:
+                             ```scss
+                             .btn-grejfreak {
+                               background-color: $grejfreak-orange;
+                               color: white;
+                               border: none;
+                               font-weight: bold;
+                             }
+                             ```
+
+                        4. Indhold: "Gå til forside":
+                           - Dette er den tekst, der vises på knappen.
+                           - Den er kort og handlingsorienteret – og fortæller brugeren præcis, hvad der sker ved klik (god UX).
+                           - Hvis du tilføjer en funktion eller et link, kan det f.eks. føre brugeren til forsiden af websitet.
+
+                        Samlet:
+                        Denne knap kombinerer Bootstrap-funktionalitet med specialdesign (via `btn-grejfreak`) og bruges til at navigere brugeren videre – sandsynligvis til forsiden af sitet. Den fremstår ensartet med resten af dit design og kan nemt udvides med JS eller links.-->
+                        <button class="btn btn-grejfreak">Gå til forside</button></div>
+
+                <!--  Lukker <a>-tagget (hyperlinket), som startede tidligere.Det er vigtigt, at dette matcher nøjagtigt med den åbning af <a>, der kun omslutter inline-indhold (som f.eks. <img> eller <button>).I dit rettede kodeeksempel er placeringen nu korrekt.-->
+            </a>
+
+            <!-- Lukker <div class="col-sm-12 col-md-12 col-lg-12"> Dette er en kolonne i Bootstrap’s grid-system.Den var åben inde i <div class="row"> og udgør én fuldbredde kolonne. -->
+        </div>
+
+    <!-- Lukker <div class="row justify-content-center w-100"> Rækken som indeholder kolonner (i dette tilfælde kun én).Det er en strukturel enhed i Bootstrap til at placere og justere kolonner vandret. -->
+</div>
+
+<!-- Lukker <div class="container-fluid vh-100 d-flex align-items-center justify-content-center"> Dette er den ydre container, der har stået for at:
+- give 100 % højde (vh-100)
+- centrere indholdet lodret og vandret (d-flex, align-items-center, justify-content-center)-->
+</div>
+
+</body>
+<!-- Lukker <body>, altså slutningen på alt synligt indhold på siden.Alt fra brugerens synsvinkel er nu afsluttet, og ingen yderligere HTML vises.-->
+
+</html>
+<!-- Lukker hele HTML-dokumentet.Det er det sidste punktum i HTML-strukturen og afslutter alt markup-kode.-->
