@@ -16,19 +16,27 @@
 	<!-- Titel på hjemmesiden – vises i browserens faneblad og i søgeresultater -->
 	<title>GrejFreak</title>
 
-	<!--
-Denne meta-tag forhindrer søgemaskiner i at indeksere denne side og følge dens links.
-Bruges f.eks. på interne sider, testmiljøer eller sider under udvikling, der ikke skal vises i Google.
-Alternativet <meta name="robots" content="All"> tillader indeksering, hvilket vi ønsker at undgå her.
--->
+	<!-- Denne meta-tag forhindrer søgemaskiner i at indeksere denne side og følge dens links.
+    Bruges f.eks. på interne sider, testmiljøer eller sider under udvikling, der ikke skal vises i Google.
+    Alternativet <meta name="robots" content="All"> tillader indeksering, hvilket vi ønsker at undgå her. -->
 	<meta name="robots" content="noindex, nofollow">
 
+	<!-- Navnet på forfatteren af siden – bruges af søgemaskiner og developer tools
+     Har ingen direkte SEO-effekt, men viser ejerskab og ansvarlig afsender -->
+	<meta name="author" content="Emil Nielsen">
 
-	<!-- Forfatter-angivelse (SEO eller info) -->
-	<meta name="author" content="Udgiver">
+	<!-- Angivelse af ophavsret – viser, hvem der ejer rettighederne til indholdet
+         Kan bruges af værktøjer, søgemaskiner og bots til juridisk reference -->
+	<meta name="copyright" content="2025 Emil Nielsen – Kun til eksamensbrug">
 
-	<!-- Ophavsretlig information (brugbar for søgemaskiner og værktøjer) -->
-	<meta name="copyright" content="Information om copyright">
+
+
+	<!-- Kort beskrivelse af siden, som søgemaskiner kan vise i søgeresultater.
+     Har ingen direkte effekt på rangering, men kan påvirke klikraten.
+     Her bruges den til at informere om, at siden er et skoleprojekt. -->
+	<meta name="description" content="OBS: Dette er et skoleprojekt og ikke en rigtig webshop.">
+
+
 
 	<!-- ========== STIL & DESIGN ========== -->
 
@@ -53,6 +61,21 @@ Alternativet <meta name="robots" content="All"> tillader indeksering, hvilket vi
 <!-- =================== START BODY =================== -->
 <!-- <body>: Alt synligt indhold på hjemmesiden placeres her -->
 <body>
+
+<div class="container mt-4">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-10">
+			<div class="alert alert-warning d-flex align-items-center justify-content-between px-4 py-3 shadow-sm" role="alert">
+				<div class="fw-bold">
+					🔔 siden er ikke en rigtig webshop- Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen
+				</div>
+				<a href="http://krygertech.dk/" target="_blank" rel="noopener">
+					<img src="img/emil.png" alt="Emil – EmediaAI logo" style="height: 200px; opacity: 0.8;">
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <!-- ==== Hele header pakket ind i din mobil-venlige struktur ==== -->
@@ -134,7 +157,6 @@ Alternativet <meta name="robots" content="All"> tillader indeksering, hvilket vi
 </header> <!-- Slut på header -->
 
 
-
 <!-- Anden række: Menulinje -->
 <div class="container-fluid bg-black">
 	<!-- "container-fluid": Bootstrap container der fylder hele skærmens bredde -->
@@ -172,6 +194,15 @@ Alternativet <meta name="robots" content="All"> tillader indeksering, hvilket vi
 	</div> <!-- Lukker .row -->
 </div> <!-- Lukker container-fluid med sort baggrund -->
 
+<div class="container mt-4">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-10">
+			<div class="alert alert-warning text-center fw-bold shadow-sm" role="alert">
+				🔔 Dette er et skoleprojekt lavet som en eksamensopgave – siden er ikke en rigtig webshop.
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <br>  <!-- BR Står for "break" og er en forkortelse for line break – altså linjeskift. Billede menu valg sektion start. -->
