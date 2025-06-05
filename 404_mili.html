@@ -16,8 +16,12 @@
     <!-- Titel på hjemmesiden – vises i browserens faneblad og i søgeresultater -->
     <title>GrejFreak</title>
 
-    <!-- Søgemaskine-indeks: Tillader alle robotter at indeksere siden -->
-    <meta name="robots" content="All">
+    <!--
+Denne meta-tag forhindrer søgemaskiner i at indeksere denne side og følge dens links.
+Bruges f.eks. på interne sider, testmiljøer eller sider under udvikling, der ikke skal vises i Google.
+Alternativet <meta name="robots" content="All"> tillader indeksering, hvilket vi ønsker at undgå her.
+-->
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- Forfatter-angivelse (SEO eller info) -->
     <meta name="author" content="Udgiver">
