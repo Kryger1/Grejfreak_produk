@@ -60,20 +60,46 @@
 <!-- =================== START BODY =================== -->
 <!-- <body>: Alt synligt indhold på hjemmesiden placeres her -->
 
+<!-- Starter en container som centrerer indholdet og giver margin-top (mt-4) -->
 <div class="container mt-4">
+
+    <!-- Starter en række (row), som centrerer sine kolonner horisontalt -->
     <div class="row justify-content-center">
+
+        <!-- Starter en kolonne der fylder 12 kolonner på mobil (col-12) og 10 kolonner på mellemstore skærme (col-md-10) -->
         <div class="col-12 col-md-10">
-            <div class="alert alert-warning d-flex align-items-center justify-content-between px-4 py-3 shadow-sm" role="alert">
+
+            <!-- Starter en alert-boks stylet med din egen CSS-klasse 'gf-alert'
+                 role="alert" gør boksen til en vigtig besked for skærmlæsere (tilgængelighed) -->
+            <div class="gf-alert" role="alert">
+
+                <!-- Starter en div som gør teksten fed (fw-bold = font-weight: bold via Bootstrap utility class) -->
                 <div class="fw-bold">
-                    🔔 siden er ikke en rigtig webshop- Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen
-                </div>
-                <a href="http://krygertech.dk/" target="_blank" rel="noopener">
-                    <img src="img/emil.png" alt="Emil – EmediaAI logo" style="height: 200px; opacity: 0.8;">
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+
+                    <!-- Selve besked-teksten brugeren ser, inkl. emoji som visuel indikator -->
+                    ⚠️ siden er ikke en rigtig webshop - Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen
+
+                </div> <!-- Slutter bold-tekst -->
+
+            </div> <!-- Slutter gf-alert-boks -->
+
+            <!-- Starter et link (anchor tag) som åbner http://krygertech.dk/ i et nyt browser-vindue -->
+            <a href="http://krygertech.dk/" target="_blank" rel="noopener">
+
+                <!-- Indsætter et billede som fungerer som et logo/link til KrygerTech
+                Billedet hentes fra 'img/emil.png'
+                alt-teksten beskriver billedet og hvad der sker ved klik (SEO + tilgængelighed)
+                style-attributten sætter billedets højde til 200px og gør det 80 % gennemsigtigt -->
+                <img src="img/emil.png" alt="Emil's logo – klik for at besøge KrygerTech.dk" style="height: 200px; opacity: 0.8;">
+
+            </a> <!-- Slutter linket -->
+
+        </div> <!-- Slutter kolonne -->
+
+    </div> <!-- Slutter række -->
+
+</div> <!-- Slutter container -->
+
 
 <!-- ==== Hele header pakket ind i din mobil-venlige struktur ==== -->
 <!-- container-fluid: Bootstrap-klasse der giver fuld bredde på hele skærmen -->
@@ -154,15 +180,30 @@
 </header> <!-- Slut på header -->
 
 
+<!-- Starter en container som centrerer og giver margin-top (mt-4) -->
 <div class="container mt-4">
+
+    <!-- Starter en række (row) som centrerer sit indhold horisontalt -->
     <div class="row justify-content-center">
+
+        <!-- Starter en kolonne som fylder 12 kolonner på små skærme og 10 kolonner på mellemstore skærme -->
         <div class="col-12 col-md-10">
-            <div class="alert alert-warning text-center fw-bold shadow-sm" role="alert">
-                🔔 Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen – siden er ikke en rigtig webshop.
-            </div>
-        </div>
-    </div>
-</div>
+
+            <!-- Starter en div med klassen 'gf-alert', som styrer udseendet af boksen via din CSS
+                 role="alert" fortæller skærmlæsere at denne boks indeholder vigtig information som skal læses op -->
+            <div class="gf-alert" role="alert">
+
+                <!-- Selve teksten du viser i boksen, inkl. en emoji for visuel markering -->
+                ⚠️ Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen – siden er ikke en rigtig webshop.
+
+            </div> <!-- Slutter gf-alert boksen -->
+
+        </div> <!-- Slutter kolonne -->
+
+    </div> <!-- Slutter række -->
+
+</div> <!-- Slutter container -->
+
 
 
 <!-- Yderste beholder der centrerer alt indhold og giver luft i top og bund -->

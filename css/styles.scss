@@ -208,12 +208,19 @@ b {
 // Bruges som specialklasse til overskrifter, som skal centreres og skille sig ud.
 // F.eks. i sektioner, hvor du ikke vil bruge <h1>, men stadig have den samme stil.
 
-.gf-heading {
-	font-family: $font-grejfreak;       // Samme font som resten af sitet
-	color: $grejfreak-orange;           // Holder brandidentiteten
-	font-weight: bold;                  // Gør det kraftigt og synligt
-	text-align: center;                 // Centrerer teksten
-	margin-bottom: 2rem;                // Giver luft under – bedre visuel balance
+.gf-alert {
+	font-family: $font-grejfreak;      // Samme font som resten af sitet
+	color: $grejfreak-orange;          // Holder brandidentiteten
+	background-color: $grejfreak-footer; // Sort baggrund i boksen
+	border: 1px solid $grejfreak-orange; // Tynd kant i brandfarven
+	font-weight: bold;                 // Gør det kraftigt og synligt
+	text-align: center;                // Centrerer teksten
+	font-size: 20px;                   // Passende skriftstørrelse til alert
+	margin-bottom: 2rem;               // Giver luft under
+	padding: 1rem;                     // Lidt luft omkring teksten
+
+
+	border-radius: 6px;                // Lidt afrundede hjørner → ser lækkert ud
 }
 
 
