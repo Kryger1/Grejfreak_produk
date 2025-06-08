@@ -60,6 +60,7 @@
 <!-- <body>: Alt synligt indhold på hjemmesiden placeres her -->
 <body>
 
+<!-- Alarm boks for bruger skal kunne se det ikke er Grejfreaks side -->
 <!-- Starter en container som centrerer indholdet og giver margin-top (mt-4) -->
 <div class="container mt-4">
 
@@ -72,29 +73,23 @@
 			<!-- Starter en alert-boks stylet med din egen CSS-klasse 'gf-alert'
                  role="alert" gør boksen til en vigtig besked for skærmlæsere (tilgængelighed) -->
 			<div class="gf-alert" role="alert">
+				<!-- Selve besked-teksten brugeren ser, inkl. emoji som visuel indikator -->
+				⚠️ siden er ikke en rigtig webshop - Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen
 
-				<!-- Starter en div som gør teksten fed (fw-bold = font-weight: bold via Bootstrap utility class) -->
-				<div class="fw-bold">
+			</div> <!-- Slutter bold-tekst -->
 
-					<!-- Selve besked-teksten brugeren ser, inkl. emoji som visuel indikator -->
-					⚠️ siden er ikke en rigtig webshop - Dette er et skoleprojekt lavet som en eksamensopgave af Emil Nielsen
+		</div> <!-- Slutter gf-alert-boks -->
 
-				</div> <!-- Slutter bold-tekst -->
+		<!-- Starter et link som åbner MIN egen side KrygerTech.dk i nyt vindue -->
+		<a href="http://krygertech.dk/" target="_blank" rel="noopener noreferrer" title="Besøg min side KrygerTech.dk">
 
-			</div> <!-- Slutter gf-alert-boks -->
+			<!-- Indsætter Emil's logo som et billede-link
+                 - src: sti til billede
+                 - alt: Emil Nielsen's logo
+                 - style: højde 200px + 80% gennemsigtighed -->
+			<img src="img/emil.png" alt="Emil Nielsen's logo – KrygerTech" style="height: 200px; opacity: 0.8;">
 
-			<!-- Starter et link (anchor tag) som åbner http://krygertech.dk/ i et nyt browser-vindue -->
-			<a href="http://krygertech.dk/" target="_blank" rel="noopener">
-
-				<!-- Indsætter et billede som fungerer som et logo/link til KrygerTech
-                Billedet hentes fra 'img/emil.png'
-                alt-teksten beskriver billedet og hvad der sker ved klik (SEO + tilgængelighed)
-                style-attributten sætter billedets højde til 200px og gør det 80 % gennemsigtigt -->
-				<img src="img/emil.png" alt="Emil's logo – klik for at besøge KrygerTech.dk" style="height: 200px; opacity: 0.8;">
-
-			</a> <!-- Slutter linket -->
-
-		</div> <!-- Slutter kolonne -->
+		</a> <!-- Slutter linket -->
 
 	</div> <!-- Slutter række -->
 
@@ -119,7 +114,7 @@
 		<div class="col-4 text-center">
 
 			<!-- Logoet linker til forsiden -->
-			<a href="index.html">
+			<a href="Greejfreek.html">
 				<!-- img-fluid: Sørger for, at billedet skaleres korrekt og tilpasses kolonnens bredde -->
 				<img src="img/logo.png" alt="GrejFreak logo" class="img-fluid">
 			</a>
@@ -1295,13 +1290,13 @@ Klasser:
 
                     Resultat:
                     pæne links uden underlinje, der er tydelige på mørk baggrund.-->
-					<li><a href="index.html" class="text-white text-decoration-none">Retur og Reklamation</a></li>
-					<li><a href="index.html" class="text-white text-decoration-none">GrejPedia</a></li>
-					<li><a href="index.html" class="text-white text-decoration-none">Ofte Stillede Spørgsmål</a></li>
-					<li><a href="index.html" class="text-white text-decoration-none">Showroom</a></li>
-					<li><a href="index.html" class="text-white text-decoration-none">Fordele</a></li>
-					<li><a href="index.html" class="text-white text-decoration-none">Kundeklub</a></li>
-					<li><a href="index.html" class="text-white text-decoration-none">Om os</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">Retur og Reklamation</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">GrejPedia</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">Ofte Stillede Spørgsmål</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">Showroom</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">Fordele</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">Kundeklub</a></li>
+					<li><a href="Greejfreek.html" class="text-white text-decoration-none">Om os</a></li>
 				</ul>
 			</div>
 
