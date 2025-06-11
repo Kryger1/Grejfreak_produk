@@ -255,9 +255,6 @@ footer {
 	// Selvom <main> typisk ikke ligger inde i <footer>,
 	// er denne regel måske fejlplaceret. Hvis det var et uheld, bør den flyttes ud.
 	// Den har ingen virkning her og bør sandsynligvis ligge udenfor footer-blokken.
-	main {
-		flex: 1;  // [OBS!] Bør flyttes ud – har ikke effekt her inde i <footer>
-	}
 
 
 	// .payment-logos img

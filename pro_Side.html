@@ -1151,35 +1151,83 @@
         </div>
 
         <!-- === Knap 2: Aktivitet & klima det samme som knap 1 === -->
+
+        <!-- Start af kolonne, fylder hele bredden på xs skærme (mobil), med margin-bottom (afstand under boksen) -->
         <div class="col-xs-12 mb-3">
+
+            <!-- Knap som bruges til at åbne/lukke en collapse-boks -->
+            <!-- id="btn-aktivitet" --> <!-- Giver knappen et ID, så man evt. kan referere til den i CSS eller JS -->
+            <!-- class="btn btn-outline-light bg-proMenu text-white fw-bold w-100" -->
+            <!-- Bootstrap-knap, outline-style lys, bruger en baggrunds-farve via bg-proMenu, tekst i hvid, fed skrift (fw-bold), fylder hele bredden (w-100) -->
+            <!-- type="button" --> <!-- Definerer knappen som en almindelig knap (ikke submit) -->
+            <!-- data-bs-toggle="collapse" --> <!-- Gør knappen til en trigger der styrer collapse-effekten -->
+            <!-- data-bs-target="#aktivitet" --> <!-- Fortæller at knappen styrer elementet med id="aktivitet" -->
             <button id="btn-aktivitet" class="btn btn-outline-light bg-proMenu text-white fw-bold w-100"
                     type="button" data-bs-toggle="collapse" data-bs-target="#aktivitet">
-                Aktivitet & klima
+                Aktivitet & klima <!-- Teksten som vises inde i knappen -->
             </button>
+
+            <!-- Collapse-boks som åbnes/lukkes når knappen ovenfor trykkes -->
+            <!-- class="collapse mt-3" --> <!-- Collapse-effekt fra Bootstrap + margin-top for afstand op til knappen -->
+            <!-- id="aktivitet" --> <!-- Giver collapse-boksen et unikt ID, som knappen refererer til -->
             <div class="collapse mt-3" id="aktivitet">
+
+                <!-- Kort-element fra Bootstrap, som bruges til at vise indholdet i en pæn ramme -->
+                <!-- class="card card-body text-start fw-bold" -->
+                <!-- card og card-body --> <!-- Standard Bootstrap kort-opbygning -->
+                <!-- text-start --> <!-- Teksten venstre-justeres -->
+                <!-- fw-bold --> <!-- Fed skrift -->
                 <div class="card card-body text-start fw-bold">
-                    <b>Aktivitet & klima</b><br>
-                    <b>Lag:</b> Outerwear<br><br>
-                    <b>Gennemsnitsvægt:</b> 0.608 kg<br><br>
-                    <b>Aktivitetstype:</b> Hundetræning/Sikkerhed, Drivjagt, Anstandsjagt
-                </div>
-            </div>
-        </div>
+
+                    <!-- Teksten inde i kortet -->
+                    <b>Aktivitet & klima</b><br> <!-- Overskrift -->
+                    <b>Lag:</b> Outerwear<br><br> <!-- Viser hvilken type lag (yderbeklædning) -->
+                    <b>Gennemsnitsvægt:</b> 0.608 kg<br><br> <!-- Viser produktets gennemsnitsvægt -->
+                    <b>Aktivitetstype:</b> Hundetræning/Sikkerhed, Drivjagt, Anstandsjagt <!-- Viser hvilke aktiviteter produktet er velegnet til -->
+
+                </div> <!-- Lukker <div class="card card-body text-start fw-bold"> -->
+
+            </div> <!-- Lukker <div class="collapse mt-3" id="aktivitet"> -->
+
+        </div> <!-- Lukker <div class="col-xs-12 mb-3"> -->
 
         <!-- === Knap 3: Materialer det samme som knap 1 === -->
+
+        <!-- Start af kolonne, fylder hele bredden på xs skærme (mobil), med margin-bottom (afstand under boksen) -->
         <div class="col-xs-12 mb-3">
+
+            <!-- Knap som bruges til at åbne/lukke en collapse-boks -->
+            <!-- id="btn-materialer" --> <!-- Giver knappen et ID, så man evt. kan referere til den i CSS eller JS -->
+            <!-- class="btn btn-outline-light bg-proMenu text-white fw-bold w-100" -->
+            <!-- Bootstrap-knap, outline-style lys, bruger en baggrunds-farve via bg-proMenu, tekst i hvid, fed skrift (fw-bold), fylder hele bredden (w-100) -->
+            <!-- type="button" --> <!-- Definerer knappen som en almindelig knap (ikke submit) -->
+            <!-- data-bs-toggle="collapse" --> <!-- Gør knappen til en trigger der styrer collapse-effekten -->
+            <!-- data-bs-target="#materialer" --> <!-- Fortæller at knappen styrer elementet med id="materialer" -->
             <button id="btn-materialer" class="btn btn-outline-light bg-proMenu text-white fw-bold w-100"
                     type="button" data-bs-toggle="collapse" data-bs-target="#materialer">
-                Materialer
+                Materialer <!-- Teksten som vises inde i knappen -->
             </button>
+
+            <!-- Collapse-boks som åbnes/lukkes når knappen ovenfor trykkes -->
+            <!-- class="collapse mt-3" --> <!-- Collapse-effekt fra Bootstrap + margin-top for afstand op til knappen -->
+            <!-- id="materialer" --> <!-- Giver collapse-boksen et unikt ID, som knappen refererer til -->
             <div class="collapse mt-3" id="materialer">
+
+                <!-- Kort-element fra Bootstrap, som bruges til at vise indholdet i en pæn ramme -->
+                <!-- class="card card-body text-start fw-bold" -->
+                <!-- card og card-body --> <!-- Standard Bootstrap kort-opbygning -->
+                <!-- text-start --> <!-- Teksten venstre-justeres -->
+                <!-- fw-bold --> <!-- Fed skrift -->
                 <div class="card card-body text-start fw-bold">
-                    <b>Materialer</b><br>
-                    <b>Main material:</b> 100% polyester, letvægtsflannel med print<br><br>
-                    <b>Lining:</b> 100% polyester, fin mesh<br><br>
-                    <b>Membrane:</b> GORE-TEX INFINIUM™ WINDSTOPPER®<br><br>
-                    <b>Teknologier:</b> GORE-TEX INFINIUM™ WINDSTOPPER® 3-lags
-                </div>  <!-- Lukker <div class="card-body text-start fw-bold"> -->
+
+                    <!-- Teksten inde i kortet -->
+                    <b>Materialer</b><br> <!-- Overskrift -->
+                    <b>Main material:</b> 100% polyester, letvægtsflannel med print<br><br> <!-- Primært materiale -->
+                    <b>Lining:</b> 100% polyester, fin mesh<br><br> <!-- Foer-materiale -->
+                    <b>Membrane:</b> GORE-TEX INFINIUM™ WINDSTOPPER®<br><br> <!-- Membran-teknologi -->
+                    <b>Teknologier:</b> GORE-TEX INFINIUM™ WINDSTOPPER® 3-lags <!-- Teknologier anvendt i materialet -->
+
+                </div> <!-- Lukker <div class="card card-body text-start fw-bold"> -->
                 <!-- Det er selve boksen med tekst og styling i collapse-indholdet -->
 
             </div>  <!-- Lukker <div class="collapse mt-3" id="..."> -->
